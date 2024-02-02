@@ -1,0 +1,40 @@
+server:
+  port: 9000
+spring:
+  #数据库连接配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/yoake_shop
+  #文件上传配置
+  servlet:
+    multipart:
+      #单个文件和文件上传(多个文件)的最大MB
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+#sping事务管理日志启动
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
+
+#mubatisplus配置
+mybatis-plus:
+  type-aliases-package: com.bumen.pojo  #别名扫描包
+  mapper-locations: "classpath*:/mapper/**/*.xml" #这个是Mapper.xml文件地址,此为默认值
+  configuration:
+    map-underscore-to-camel-case: true  #开启下划线和驼峰的映射
+    cache-enabled: false #是否开启二级缓存,mp提供了EhCache分布式缓存,但现在项目多以redis为主
+    #EhCache 是一个纯Java的进程内缓存框架，具有快速、精干等特点，是Hibernate中默认CacheProvider。
+    #Ehcache是一种广泛使用的开源Java分布式缓存。主要面向通用缓存,Java EE和轻量级容器。它具有内存和磁盘存储，
+    #缓存加载器,缓存扩展,缓存异常处理程序,一个gzip缓存servlet过滤器,支持REST和SOAP api等特点。
+    log-impl: org.apache.ibatis.logging.log4j.Log4jImpl
+
+  #mp新增的配置
+  global-config:
+    db-config:
+      id-type: auto #使用数据库自带的id自增方法,如果不开启默认是mp自带的雪花算法生成的id
+      update-strategy: not_null #更新策略:只更新非空字段
+
+
