@@ -1,2 +1,72 @@
 DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
 DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+DEBUG http-nio-9000-exec-5 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG http-nio-9000-exec-5 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e47ffa8] was not registered for synchronization because synchronization is not active
+DEBUG http-nio-9000-exec-5 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1240429910 wrapping com.mysql.cj.jdbc.ConnectionImpl@4de2713e] will not be managed by Spring
+DEBUG http-nio-9000-exec-5 com.shop.service.mapper.UserMapper.selectList - ==>  Preparing: SELECT id,account,password,nickname,birthday,gender,profession,full_location,avatar,create_time FROM user WHERE (account = ? AND password = ?)
+DEBUG http-nio-9000-exec-5 com.shop.service.mapper.UserMapper.selectList - ==> Parameters: admin(String), 123456(String)
+DEBUG http-nio-9000-exec-5 com.shop.service.mapper.UserMapper.selectList - <==      Total: 0
+DEBUG http-nio-9000-exec-5 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e47ffa8]
+DEBUG http-nio-9000-exec-4 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG http-nio-9000-exec-4 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6719f95f] was not registered for synchronization because synchronization is not active
+DEBUG http-nio-9000-exec-4 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@639955812 wrapping com.mysql.cj.jdbc.ConnectionImpl@4de2713e] will not be managed by Spring
+DEBUG http-nio-9000-exec-4 com.shop.service.mapper.UserMapper.selectList - ==>  Preparing: SELECT id,account,password,nickname,birthday,gender,profession,full_location,avatar,create_time FROM user WHERE (account = ? AND password = ?)
+DEBUG http-nio-9000-exec-4 com.shop.service.mapper.UserMapper.selectList - ==> Parameters: 13599692454(String), 123456(String)
+DEBUG http-nio-9000-exec-4 com.shop.service.mapper.UserMapper.selectList - <==      Total: 1
+DEBUG http-nio-9000-exec-4 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6719f95f]
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33438802] was not registered for synchronization because synchronization is not active
+DEBUG http-nio-9000-exec-2 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@613570440 wrapping com.mysql.cj.jdbc.ConnectionImpl@7f3d9a5e] will not be managed by Spring
+DEBUG http-nio-9000-exec-2 com.shop.service.mapper.UserMapper.selectList - ==>  Preparing: SELECT id,account,password,nickname,birthday,gender,profession,full_location,avatar,create_time FROM user WHERE (account = ?)
+DEBUG http-nio-9000-exec-2 com.shop.service.mapper.UserMapper.selectList - ==> Parameters: 13599692454(String)
+DEBUG http-nio-9000-exec-2 com.shop.service.mapper.UserMapper.selectList - <==      Total: 1
+DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33438802]
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7775c0d3] was not registered for synchronization because synchronization is not active
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@910740200 wrapping com.mysql.cj.jdbc.ConnectionImpl@7f3d9a5e] will not be managed by Spring
+DEBUG http-nio-9000-exec-1 com.shop.service.mapper.UserMapper.selectList - ==>  Preparing: SELECT id,account,password,nickname,birthday,gender,profession,full_location,avatar,create_time FROM user WHERE (account = ?)
+DEBUG http-nio-9000-exec-1 com.shop.service.mapper.UserMapper.selectList - ==> Parameters: 1359969454(String)
+DEBUG http-nio-9000-exec-1 com.shop.service.mapper.UserMapper.selectList - <==      Total: 0
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7775c0d3]
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@43894e12] was not registered for synchronization because synchronization is not active
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1565267209 wrapping com.mysql.cj.jdbc.ConnectionImpl@20630ce4] will not be managed by Spring
+DEBUG http-nio-9000-exec-1 com.shop.service.mapper.UserMapper.selectList - ==>  Preparing: SELECT id,account,password,nickname,birthday,gender,profession,full_location,avatar,create_time FROM user WHERE (account = ?)
+DEBUG http-nio-9000-exec-1 com.shop.service.mapper.UserMapper.selectList - ==> Parameters: 135996934(String)
+DEBUG http-nio-9000-exec-1 com.shop.service.mapper.UserMapper.selectList - <==      Total: 0
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@43894e12]
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@eac30b] was not registered for synchronization because synchronization is not active
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@330738743 wrapping com.mysql.cj.jdbc.ConnectionImpl@20630ce4] will not be managed by Spring
+DEBUG http-nio-9000-exec-1 com.shop.service.mapper.UserMapper.insert - ==>  Preparing: INSERT INTO user ( account, create_time ) VALUES ( ?, ? )
+DEBUG http-nio-9000-exec-1 com.shop.service.mapper.UserMapper.insert - ==> Parameters: 135996934(String), 2024-02-03T16:02:25.983(LocalDateTime)
+DEBUG http-nio-9000-exec-1 com.shop.service.mapper.UserMapper.insert - <==    Updates: 1
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@eac30b]
