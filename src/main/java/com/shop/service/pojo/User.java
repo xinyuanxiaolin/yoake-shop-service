@@ -1,5 +1,7 @@
 package com.shop.service.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,5 +32,6 @@ public class User {
     /** 头像 */
     private String avatar;
     /** 创建时间 */
+    @JsonIgnore
     private LocalDateTime createTime;
 }
