@@ -48,7 +48,7 @@ public class GoodsServiceImpl implements GoodsService {
                     List<CategoryTopItem> categoryGoodsItems = getParent_id(categoryAllList, L2.getId());
                     if(categoryGoodsItems !=null){
                         //封装成三级列表也就是商品格式列表
-                     List<GoodsItem> goodsItemList =   categoryGoodsItems.stream().map(goods->{
+                        List<GoodsItem> goodsItemList =   categoryGoodsItems.stream().map(goods->{
                             GoodsItem goodsItem = new GoodsItem(goods.getId(),L2.getId(),goods.getDesc(),goods.getDiscount(),goods.getName(), goods.getOrderNum(), goods.getPicture(),goods.getPrice());
                             return  goodsItem;
                         }).collect(Collectors.toList());

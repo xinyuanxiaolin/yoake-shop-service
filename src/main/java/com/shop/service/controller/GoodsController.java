@@ -14,17 +14,22 @@ import java.util.Map;
 
 //商品和分类相关接口
 @RestController
-@RequestMapping("/home")
 public class GoodsController {
     @Autowired
     private GoodsService goodsService;
 
     //首页-前台分类
-    @GetMapping("/category/mutli")
+    @GetMapping("/home/category/mutli")
     public Result getHomeCategory(){
+        List<CategoryTopItem> categoryTopItemList = goodsService.getCategoryTop();
+        return Result.success(categoryTopItemList);
+    }
+    //分类-分类列表
+    @GetMapping("/category/top")
+    public  Result getCategoryList(){
         //多级分类返回
         List<CategoryTopItem> categoryTopItem = goodsService.getHomeCategory();
-       return  Result.success(categoryTopItem);
+        return  Result.success(categoryTopItem);
     }
 
 }
