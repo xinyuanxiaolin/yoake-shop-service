@@ -593,3 +593,56 @@ DEBUG http-nio-9000-exec-4 com.shop.service.mapper.GoodsMapper.selectList - ==> 
 DEBUG http-nio-9000-exec-4 com.shop.service.mapper.GoodsMapper.selectList - ==> Parameters: 0(Integer)
 DEBUG http-nio-9000-exec-4 com.shop.service.mapper.GoodsMapper.selectList - <==      Total: 3
 DEBUG http-nio-9000-exec-4 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@40377511]
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Registered plugin: 'com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor@6807a356'
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4691ba7e] was not registered for synchronization because synchronization is not active
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@661990726 wrapping com.mysql.cj.jdbc.ConnectionImpl@5c14be27] will not be managed by Spring
+DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.selectList - ==>  Preparing: SELECT id,name,parent_id,picture,`desc`,order_num,price,discount FROM category WHERE (parent_id = ?)
+DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.selectList - ==> Parameters: 0(Integer)
+DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.selectList - <==      Total: 3
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4691ba7e]
+DEBUG http-nio-9000-exec-5 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG http-nio-9000-exec-5 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@349eee9d] was not registered for synchronization because synchronization is not active
+DEBUG http-nio-9000-exec-5 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1973675174 wrapping com.mysql.cj.jdbc.ConnectionImpl@5c14be27] will not be managed by Spring
+DEBUG http-nio-9000-exec-5 com.shop.service.mapper.GoodsMapper.selectList - ==>  Preparing: SELECT id,name,parent_id,picture,`desc`,order_num,price,discount FROM category WHERE (parent_id = ?)
+DEBUG http-nio-9000-exec-5 com.shop.service.mapper.GoodsMapper.selectList - ==> Parameters: 0(Integer)
+DEBUG http-nio-9000-exec-5 com.shop.service.mapper.GoodsMapper.selectList - <==      Total: 3
+DEBUG http-nio-9000-exec-5 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@349eee9d]
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Registered plugin: 'com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor@11bd803'
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@655ca970] was not registered for synchronization because synchronization is not active
+DEBUG http-nio-9000-exec-2 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1563852602 wrapping com.mysql.cj.jdbc.ConnectionImpl@f20683c] will not be managed by Spring
+DEBUG http-nio-9000-exec-2 com.shop.service.mapper.UserMapper.selectList - ==>  Preparing: SELECT id,account,password,nickname,birthday,gender,profession,full_location,avatar,create_time FROM user WHERE (account = ?)
+DEBUG http-nio-9000-exec-2 com.shop.service.mapper.UserMapper.selectList - ==> Parameters: 13526934(String)
+DEBUG http-nio-9000-exec-2 com.shop.service.mapper.UserMapper.selectList - <==      Total: 1
+DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@655ca970]
+DEBUG http-nio-9000-exec-3 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG http-nio-9000-exec-3 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@19253647] was not registered for synchronization because synchronization is not active
+DEBUG http-nio-9000-exec-3 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@262992014 wrapping com.mysql.cj.jdbc.ConnectionImpl@f20683c] will not be managed by Spring
+DEBUG http-nio-9000-exec-3 com.shop.service.mapper.GuessMapper.selectPage_mpCount - ==>  Preparing: SELECT COUNT(*) AS total FROM category WHERE (list_level LIKE ?)
+DEBUG http-nio-9000-exec-3 com.shop.service.mapper.GuessMapper.selectPage_mpCount - ==> Parameters: %3%(String)
+DEBUG http-nio-9000-exec-3 com.shop.service.mapper.GuessMapper.selectPage_mpCount - <==      Total: 1
+DEBUG http-nio-9000-exec-3 com.shop.service.mapper.GuessMapper.selectPage - ==>  Preparing: SELECT id,parent_id,`desc`,discount,name,order_num,picture,price FROM category WHERE (list_level LIKE ?) LIMIT ?
+DEBUG http-nio-9000-exec-3 com.shop.service.mapper.GuessMapper.selectPage - ==> Parameters: %3%(String), 10(Long)
+DEBUG http-nio-9000-exec-3 com.shop.service.mapper.GuessMapper.selectPage - <==      Total: 2
+DEBUG http-nio-9000-exec-3 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@19253647]
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Registered plugin: 'com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor@7d070ef5'
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Registered plugin: 'com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor@54c622a7'
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f73f7ae] was not registered for synchronization because synchronization is not active
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1329368427 wrapping com.mysql.cj.jdbc.ConnectionImpl@2bc3976f] will not be managed by Spring
+DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GuessMapper.selectPage_mpCount - ==>  Preparing: SELECT COUNT(*) AS total FROM category WHERE (list_level LIKE ?)
+DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GuessMapper.selectPage_mpCount - ==> Parameters: %3%(String)
+DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GuessMapper.selectPage_mpCount - <==      Total: 1
+DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GuessMapper.selectPage - ==>  Preparing: SELECT id,parent_id,`desc`,discount,name,order_num,picture,price FROM category WHERE (list_level LIKE ?) LIMIT ?
+DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GuessMapper.selectPage - ==> Parameters: %3%(String), 10(Long)
+DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GuessMapper.selectPage - <==      Total: 2
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f73f7ae]

@@ -10,15 +10,22 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @Slf4j
 @Service
-public class GoodsServiceImpl implements GoodsService {
+public class GoodsServiceImpl implements GoodsService  {
 
     @Autowired
     private GoodsMapper goodsMapper;
+
+    //实现多级列表封装函数
+    private List<CategoryTopItem> getParent_id(List<CategoryTopItem> selectList ,Integer parent_id) {
+        List<CategoryTopItem> collect =  selectList.stream().filter(item->{
+            return item.getParentId() == parent_id;
+        }).collect(Collectors.toList());
+        return  collect;
+    }
 
     //获取一级列表
     @Override
@@ -65,10 +72,6 @@ public class GoodsServiceImpl implements GoodsService {
         return parent_data;
     }
 
-    private List<CategoryTopItem> getParent_id(List<CategoryTopItem> selectList ,Integer parent_id) {
-        List<CategoryTopItem> collect =  selectList.stream().filter(item->{
-            return item.getParentId() == parent_id;
-        }).collect(Collectors.toList());
-        return  collect;
-    }
+
+
 }

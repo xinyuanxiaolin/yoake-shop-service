@@ -1,13 +1,12 @@
 package com.shop.service.controller;
 
+import com.shop.service.pojo.Guess;
 import com.shop.service.pojo.Result;
 import com.shop.service.pojo.category.CategoryChildItem;
 import com.shop.service.pojo.category.CategoryTopItem;
 import com.shop.service.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -24,6 +23,7 @@ public class GoodsController {
         List<CategoryTopItem> categoryTopItemList = goodsService.getCategoryTop();
         return Result.success(categoryTopItemList);
     }
+
     //分类-分类列表
     @GetMapping("/category/top")
     public  Result getCategoryList(){
