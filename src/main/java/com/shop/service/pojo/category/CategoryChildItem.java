@@ -1,6 +1,7 @@
 package com.shop.service.pojo.category;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.shop.service.pojo.goods.GoodsItem;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

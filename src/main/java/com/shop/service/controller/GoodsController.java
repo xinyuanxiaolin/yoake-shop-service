@@ -1,9 +1,8 @@
 package com.shop.service.controller;
 
-import com.shop.service.pojo.Guess;
 import com.shop.service.pojo.Result;
-import com.shop.service.pojo.category.CategoryChildItem;
 import com.shop.service.pojo.category.CategoryTopItem;
+import com.shop.service.pojo.goods.GoodsDetail;
 import com.shop.service.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +29,13 @@ public class GoodsController {
         //多级分类返回
         List<CategoryTopItem> categoryTopItem = goodsService.getHomeCategory();
         return  Result.success(categoryTopItem);
+    }
+
+    //商品详情
+    @GetMapping("/goods")
+    public Result getGoodsById(@RequestParam Integer id){
+        GoodsDetail goodsDetail = goodsService.getGoodsDetailById(id);
+        return Result.success(goodsDetail);
     }
 
 }

@@ -1,4 +1,4 @@
-package com.shop.service.pojo.category;
+package com.shop.service.pojo.goods;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;

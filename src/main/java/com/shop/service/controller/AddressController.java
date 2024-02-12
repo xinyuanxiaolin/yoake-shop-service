@@ -6,11 +6,8 @@ import com.shop.service.common.JwtToken;
 import com.shop.service.pojo.Address;
 import com.shop.service.pojo.Result;
 import com.shop.service.service.AddressService;
-import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController

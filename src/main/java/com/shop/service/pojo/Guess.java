@@ -1,6 +1,6 @@
 package com.shop.service.pojo;
 
-import com.shop.service.pojo.category.GoodsItem;
+import com.shop.service.pojo.goods.GoodsItem;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

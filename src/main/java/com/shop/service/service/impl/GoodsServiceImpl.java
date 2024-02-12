@@ -4,11 +4,13 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.shop.service.mapper.GoodsMapper;
 import com.shop.service.pojo.category.CategoryChildItem;
 import com.shop.service.pojo.category.CategoryTopItem;
-import com.shop.service.pojo.category.GoodsItem;
+import com.shop.service.pojo.goods.*;
 import com.shop.service.service.GoodsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -72,6 +74,34 @@ public class GoodsServiceImpl implements GoodsService  {
         return parent_data;
     }
 
+    //获取单个商品详情数据
+    @Override
+    public GoodsDetail getGoodsDetailById(Integer id) {
+        //首先根据商品id获取下商品基本数据
+        GoodsDetail goodsDetail = goodsMapper.getInfo(id);
+        //接下来获取details,mainPictures,similarProducts,skus,specs详细数据
+        //封装details
+        Details details = new Details();
+        details.setProperties(goodsMapper.getPropertiesById(id));
+        details.setPictures(goodsMapper.getDetailsPictures(id));
+        //封装mainPictures
+        goodsDetail.setMainPictures(goodsMapper.getMainPicturesById(id));
+        //封装skus,specs
+        List<SkuItem> skuItemList = goodsMapper.getSkuItemByGoodsId(id);
+        List<SpecItem> specItemKeyList = goodsMapper.getSpecItemKeyByGoodsId(id);
+        List<SpecItem> specItemList = specItemKeyList.stream().map(v->{
+                 v.setValues(goodsMapper.getSpecValueBySpecId(v.getId()));
+            return v;
+        }).collect(Collectors.toList());
+        //接下来给goodsDetail剩下封装好的每个属性赋值
+        goodsDetail.setDetails(details);
+        goodsDetail.setSkus(skuItemList);
+        goodsDetail.setSpecs(specItemList);
+
+
+        log.info("商品值:{}",goodsDetail);
+        return goodsDetail;
+    }
 
 
 }

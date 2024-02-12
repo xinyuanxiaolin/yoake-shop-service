@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.shop.service.pojo.Guess;
 import com.shop.service.pojo.Result;
-import com.shop.service.pojo.category.GoodsItem;
+import com.shop.service.pojo.goods.GoodsItem;
 import com.shop.service.service.GuessService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
