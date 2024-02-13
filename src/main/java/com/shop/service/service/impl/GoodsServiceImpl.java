@@ -79,24 +79,15 @@ public class GoodsServiceImpl implements GoodsService  {
     public GoodsDetail getGoodsDetailById(Integer id) {
         //首先根据商品id获取下商品基本数据
         GoodsDetail goodsDetail = goodsMapper.getInfo(id);
-        //接下来获取details,mainPictures,similarProducts,skus,specs详细数据
+        //接下来获取details,mainPictures,similarProducts详细数据
         //封装details
         Details details = new Details();
         details.setProperties(goodsMapper.getPropertiesById(id));
         details.setPictures(goodsMapper.getDetailsPictures(id));
         //封装mainPictures
         goodsDetail.setMainPictures(goodsMapper.getMainPicturesById(id));
-        //封装skus,specs
-        List<SkuItem> skuItemList = goodsMapper.getSkuItemByGoodsId(id);
-        List<SpecItem> specItemKeyList = goodsMapper.getSpecItemKeyByGoodsId(id);
-        List<SpecItem> specItemList = specItemKeyList.stream().map(v->{
-                 v.setValues(goodsMapper.getSpecValueBySpecId(v.getId()));
-            return v;
-        }).collect(Collectors.toList());
         //接下来给goodsDetail剩下封装好的每个属性赋值
         goodsDetail.setDetails(details);
-        goodsDetail.setSkus(skuItemList);
-        goodsDetail.setSpecs(specItemList);
 
 
         log.info("商品值:{}",goodsDetail);

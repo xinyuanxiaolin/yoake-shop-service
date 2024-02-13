@@ -27,8 +27,5 @@ public class GoodsDetail {
     private List<String> mainPictures;
     /** 同类商品[ 商品信息 ] */
     private List<GoodsItem> similarProducts;
-    /** sku集合[ sku信息 ] */
-    private List<SkuItem> skus;
-    /** 可选规格集合备注[ 可选规格信息 ] */
-    private List<SpecItem> specs;
+
 }

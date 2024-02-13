@@ -24,13 +24,4 @@ public interface GoodsMapper extends BaseMapper<CategoryTopItem> {
     @Select("select picture from goods_pictures where goods_id =#{id} and type = 1")
     List<String> getMainPicturesById(Integer id);
 
-    @Select("select * from goods_skus where goods_id = #{id}")
-    List<SkuItem> getSkuItemByGoodsId(Integer id);
-
-    @Select("select * from goods_specs_keys where goods_id = #{id}")
-    List<SpecItem> getSpecItemKeyByGoodsId(Integer id);
-
-    @Select("select * from goods_specs_value where specs_id = #{id}")
-    List<SpecValueItem> getSpecValueBySpecId(String id);
-
 }

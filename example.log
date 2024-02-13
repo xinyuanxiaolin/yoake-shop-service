@@ -1,308 +1,82 @@
+DEBUG http-nio-9000-exec-1 com.shop.service.mapper.CartMapper.updateById - ==> Parameters: 6(String), 2(String), 5(String), 梅乃宿梅酒720毫升(String), https://yanxuan-item.nosdn.127.net/34c9705c2a6261fad25985e49e24f168.png(String), 15(Integer), 79.0(Double), 79.0(Double), 3367(Integer), false(Boolean), 2(String)
+DEBUG http-nio-9000-exec-1 com.shop.service.mapper.CartMapper.updateById - <==    Updates: 1
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@333339d]
+DEBUG http-nio-9000-exec-6 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG http-nio-9000-exec-6 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5732f24f] was not registered for synchronization because synchronization is not active
+DEBUG http-nio-9000-exec-6 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@370145396 wrapping com.mysql.cj.jdbc.ConnectionImpl@1613d9d7] will not be managed by Spring
+DEBUG http-nio-9000-exec-6 com.shop.service.mapper.CartMapper.getSkuInfo - ==>  Preparing: select * from goods_skus where id = ?
+DEBUG http-nio-9000-exec-6 com.shop.service.mapper.CartMapper.getSkuInfo - ==> Parameters: 1(String)
+DEBUG http-nio-9000-exec-6 com.shop.service.mapper.CartMapper.getSkuInfo - <==      Total: 1
+DEBUG http-nio-9000-exec-6 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5732f24f]
+DEBUG http-nio-9000-exec-6 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG http-nio-9000-exec-6 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@726e1daa] was not registered for synchronization because synchronization is not active
+DEBUG http-nio-9000-exec-6 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@248036874 wrapping com.mysql.cj.jdbc.ConnectionImpl@1613d9d7] will not be managed by Spring
+DEBUG http-nio-9000-exec-6 com.shop.service.mapper.CartMapper.getGoodsName - ==>  Preparing: select name from category where id =?
+DEBUG http-nio-9000-exec-6 com.shop.service.mapper.CartMapper.getGoodsName - ==> Parameters: 6(Integer)
+DEBUG http-nio-9000-exec-6 com.shop.service.mapper.CartMapper.getGoodsName - <==      Total: 1
+DEBUG http-nio-9000-exec-6 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@726e1daa]
+DEBUG http-nio-9000-exec-6 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG http-nio-9000-exec-6 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7295c0d0] was not registered for synchronization because synchronization is not active
+DEBUG http-nio-9000-exec-6 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@2027339288 wrapping com.mysql.cj.jdbc.ConnectionImpl@1613d9d7] will not be managed by Spring
+DEBUG http-nio-9000-exec-6 com.shop.service.mapper.CartMapper.selectList - ==>  Preparing: SELECT id,goods_id,sku_id,user_id,name,picture,count,price,now_price,stock,selected FROM cart WHERE (sku_id = ? AND user_id = ?)
+DEBUG http-nio-9000-exec-6 com.shop.service.mapper.CartMapper.selectList - ==> Parameters: 1(String), 5(Integer)
+DEBUG http-nio-9000-exec-6 com.shop.service.mapper.CartMapper.selectList - <==      Total: 0
+DEBUG http-nio-9000-exec-6 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7295c0d0]
+DEBUG http-nio-9000-exec-6 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG http-nio-9000-exec-6 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@15f7ae40] was not registered for synchronization because synchronization is not active
+DEBUG http-nio-9000-exec-6 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1564906427 wrapping com.mysql.cj.jdbc.ConnectionImpl@1613d9d7] will not be managed by Spring
+DEBUG http-nio-9000-exec-6 com.shop.service.mapper.CartMapper.insert - ==>  Preparing: INSERT INTO cart ( goods_id, sku_id, user_id, name, picture, count, price, now_price, stock, selected ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+DEBUG http-nio-9000-exec-6 com.shop.service.mapper.CartMapper.insert - ==> Parameters: 6(String), 1(String), 5(String), 梅乃宿梅酒720毫升(String), https://yanxuan-item.nosdn.127.net/34c9705c2a6261fad25985e49e24f168.png(String), 3(Integer), 79.0(Double), 79.0(Double), 5384(Integer), false(Boolean)
+DEBUG http-nio-9000-exec-6 com.shop.service.mapper.CartMapper.insert - <==    Updates: 1
+DEBUG http-nio-9000-exec-6 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@15f7ae40]
 DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Registered plugin: 'com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor@6e0e5dec'
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Registered plugin: 'com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor@6da9dc6'
 DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5faf6923] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1803579544 wrapping com.mysql.cj.jdbc.ConnectionImpl@62bc54b7] will not be managed by Spring
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.UserMapper.selectList - ==>  Preparing: SELECT id,account,password,nickname,birthday,gender,profession,full_location,avatar,create_time FROM user WHERE (account = ?)
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.UserMapper.selectList - ==> Parameters: 13526934(String)
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.UserMapper.selectList - <==      Total: 1
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5faf6923]
 DEBUG http-nio-9000-exec-4 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-4 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@77fa7487] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-4 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@2123774333 wrapping com.mysql.cj.jdbc.ConnectionImpl@62bc54b7] will not be managed by Spring
+DEBUG http-nio-9000-exec-4 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@d4f79e5] was not registered for synchronization because synchronization is not active
+DEBUG http-nio-9000-exec-4 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1927459767 wrapping com.mysql.cj.jdbc.ConnectionImpl@2c01ff3a] will not be managed by Spring
+DEBUG http-nio-9000-exec-4 com.shop.service.mapper.CartMapper.selectList - ==>  Preparing: SELECT id,goods_id,sku_id,user_id,name,picture,count,price,now_price,stock,selected FROM cart WHERE (user_id = ?)
+DEBUG http-nio-9000-exec-4 com.shop.service.mapper.CartMapper.selectList - ==> Parameters: 5(Integer)
+DEBUG http-nio-9000-exec-4 com.shop.service.mapper.CartMapper.selectList - <==      Total: 2
+DEBUG http-nio-9000-exec-4 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@d4f79e5]
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Registered plugin: 'com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor@3b95d13c'
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Registered plugin: 'com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor@3b95d13c'
+DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3790add1] was not registered for synchronization because synchronization is not active
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@804254850 wrapping com.mysql.cj.jdbc.ConnectionImpl@23574032] will not be managed by Spring
+DEBUG http-nio-9000-exec-1 com.shop.service.mapper.UserMapper.selectList - ==>  Preparing: SELECT id,account,password,nickname,birthday,gender,profession,full_location,avatar,create_time FROM user WHERE (account = ?)
+DEBUG http-nio-9000-exec-1 com.shop.service.mapper.UserMapper.selectList - ==> Parameters: 13526934(String)
+DEBUG http-nio-9000-exec-1 com.shop.service.mapper.UserMapper.selectList - <==      Total: 1
+DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3790add1]
+DEBUG http-nio-9000-exec-4 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG http-nio-9000-exec-4 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4395d9c9] was not registered for synchronization because synchronization is not active
+DEBUG http-nio-9000-exec-4 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1343639016 wrapping com.mysql.cj.jdbc.ConnectionImpl@23574032] will not be managed by Spring
 DEBUG http-nio-9000-exec-4 com.shop.service.mapper.GoodsMapper.getInfo - ==>  Preparing: select * from category where id = ?
 DEBUG http-nio-9000-exec-4 com.shop.service.mapper.GoodsMapper.getInfo - ==> Parameters: 6(Integer)
 DEBUG http-nio-9000-exec-4 com.shop.service.mapper.GoodsMapper.getInfo - <==      Total: 1
-DEBUG http-nio-9000-exec-4 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@77fa7487]
-DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Registered plugin: 'com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor@40729f01'
-DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@74037937] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1281730643 wrapping com.mysql.cj.jdbc.ConnectionImpl@12adf085] will not be managed by Spring
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getInfo - ==>  Preparing: select * from category where id = ?
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getInfo - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getInfo - <==      Total: 1
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@74037937]
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5130448a] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1692268424 wrapping com.mysql.cj.jdbc.ConnectionImpl@12adf085] will not be managed by Spring
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getPropertiesById - ==>  Preparing: select * from goods_properties where id=?
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getPropertiesById - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getPropertiesById - <==      Total: 0
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5130448a]
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@476a8cf1] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@2135374234 wrapping com.mysql.cj.jdbc.ConnectionImpl@12adf085] will not be managed by Spring
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getMainPicturesById - ==>  Preparing: select picture from goods_pictures where id =?
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getMainPicturesById - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getMainPicturesById - <==      Total: 1
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@476a8cf1]
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6b73b9f9] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1405792608 wrapping com.mysql.cj.jdbc.ConnectionImpl@12adf085] will not be managed by Spring
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSkuItemByGoodsId - ==>  Preparing: select * from goods_skus where goods_id = ?
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSkuItemByGoodsId - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSkuItemByGoodsId - <==      Total: 2
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6b73b9f9]
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@14f0661c] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@945796792 wrapping com.mysql.cj.jdbc.ConnectionImpl@12adf085] will not be managed by Spring
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecItemKeyByGoodsId - ==>  Preparing: select * from goods_specs_keys where goods_id = ?
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecItemKeyByGoodsId - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecItemKeyByGoodsId - <==      Total: 2
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@14f0661c]
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@458aad0a] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1201987478 wrapping com.mysql.cj.jdbc.ConnectionImpl@12adf085] will not be managed by Spring
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - ==>  Preparing: select * from goods_specs_value where specs_id = ?
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - ==> Parameters: 1(String)
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - <==      Total: 1
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@458aad0a]
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6d944aa8] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@632499123 wrapping com.mysql.cj.jdbc.ConnectionImpl@12adf085] will not be managed by Spring
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - ==>  Preparing: select * from goods_specs_value where specs_id = ?
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - ==> Parameters: 2(String)
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - <==      Total: 1
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6d944aa8]
-DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Registered plugin: 'com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor@4b432e53'
-DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
-DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Registered plugin: 'com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor@25f15f50'
-DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5b757e50] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@599474476 wrapping com.mysql.cj.jdbc.ConnectionImpl@768978c0] will not be managed by Spring
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getInfo - ==>  Preparing: select * from category where id = ?
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getInfo - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getInfo - <==      Total: 1
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5b757e50]
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6d906163] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@339446668 wrapping com.mysql.cj.jdbc.ConnectionImpl@768978c0] will not be managed by Spring
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getPropertiesById - ==>  Preparing: select * from goods_properties where goods_id=?
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getPropertiesById - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getPropertiesById - <==      Total: 3
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6d906163]
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6361c80f] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@187563437 wrapping com.mysql.cj.jdbc.ConnectionImpl@768978c0] will not be managed by Spring
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getDetailsPictures - ==>  Preparing: select picture from goods_pictures where id =? and type = 2
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getDetailsPictures - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getDetailsPictures - <==      Total: 1
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6361c80f]
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5d1c5995] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@621238675 wrapping com.mysql.cj.jdbc.ConnectionImpl@768978c0] will not be managed by Spring
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getMainPicturesById - ==>  Preparing: select picture from goods_pictures where id =? and type = 1
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getMainPicturesById - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getMainPicturesById - <==      Total: 0
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5d1c5995]
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4c7bb26] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@568040932 wrapping com.mysql.cj.jdbc.ConnectionImpl@768978c0] will not be managed by Spring
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getSkuItemByGoodsId - ==>  Preparing: select * from goods_skus where goods_id = ?
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getSkuItemByGoodsId - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getSkuItemByGoodsId - <==      Total: 2
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4c7bb26]
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51e50560] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@2097057620 wrapping com.mysql.cj.jdbc.ConnectionImpl@768978c0] will not be managed by Spring
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getSpecItemKeyByGoodsId - ==>  Preparing: select * from goods_specs_keys where goods_id = ?
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getSpecItemKeyByGoodsId - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getSpecItemKeyByGoodsId - <==      Total: 2
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51e50560]
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@22e2f6ad] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1369164675 wrapping com.mysql.cj.jdbc.ConnectionImpl@768978c0] will not be managed by Spring
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - ==>  Preparing: select * from goods_specs_value where specs_id = ?
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - ==> Parameters: 1(String)
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - <==      Total: 1
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@22e2f6ad]
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@76ceb27] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@270394551 wrapping com.mysql.cj.jdbc.ConnectionImpl@768978c0] will not be managed by Spring
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - ==>  Preparing: select * from goods_specs_value where specs_id = ?
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - ==> Parameters: 2(String)
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - <==      Total: 1
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@76ceb27]
-DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Registered plugin: 'com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor@62f11ebb'
-DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2de3798c] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1287343770 wrapping com.mysql.cj.jdbc.ConnectionImpl@c78db27] will not be managed by Spring
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getInfo - ==>  Preparing: select * from category where id = ?
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getInfo - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getInfo - <==      Total: 1
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2de3798c]
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@183e069e] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@414873442 wrapping com.mysql.cj.jdbc.ConnectionImpl@c78db27] will not be managed by Spring
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getPropertiesById - ==>  Preparing: select * from goods_properties where goods_id=?
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getPropertiesById - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getPropertiesById - <==      Total: 3
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@183e069e]
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@253efa9c] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1094179599 wrapping com.mysql.cj.jdbc.ConnectionImpl@c78db27] will not be managed by Spring
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getDetailsPictures - ==>  Preparing: select picture from goods_pictures where goods_id =? and type = 2
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getDetailsPictures - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getDetailsPictures - <==      Total: 4
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@253efa9c]
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4a68fbe2] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@29669529 wrapping com.mysql.cj.jdbc.ConnectionImpl@c78db27] will not be managed by Spring
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getMainPicturesById - ==>  Preparing: select picture from goods_pictures where goods_id =? and type = 1
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getMainPicturesById - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getMainPicturesById - <==      Total: 5
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4a68fbe2]
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@42e0d5e4] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1294954907 wrapping com.mysql.cj.jdbc.ConnectionImpl@c78db27] will not be managed by Spring
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSkuItemByGoodsId - ==>  Preparing: select * from goods_skus where goods_id = ?
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSkuItemByGoodsId - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSkuItemByGoodsId - <==      Total: 2
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@42e0d5e4]
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3da62c28] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@175085447 wrapping com.mysql.cj.jdbc.ConnectionImpl@c78db27] will not be managed by Spring
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecItemKeyByGoodsId - ==>  Preparing: select * from goods_specs_keys where goods_id = ?
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecItemKeyByGoodsId - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecItemKeyByGoodsId - <==      Total: 2
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3da62c28]
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52269606] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@79729205 wrapping com.mysql.cj.jdbc.ConnectionImpl@c78db27] will not be managed by Spring
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - ==>  Preparing: select * from goods_specs_value where specs_id = ?
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - ==> Parameters: 1(String)
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - <==      Total: 1
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52269606]
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@59edc772] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@914139241 wrapping com.mysql.cj.jdbc.ConnectionImpl@c78db27] will not be managed by Spring
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - ==>  Preparing: select * from goods_specs_value where specs_id = ?
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - ==> Parameters: 2(String)
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - <==      Total: 1
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@59edc772]
-DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Registered plugin: 'com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor@76f881d9'
-DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50b721b7] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@387622998 wrapping com.mysql.cj.jdbc.ConnectionImpl@404bd1fb] will not be managed by Spring
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getInfo - ==>  Preparing: select * from category where id = ?
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getInfo - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getInfo - <==      Total: 1
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50b721b7]
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e76fb1d] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@603968686 wrapping com.mysql.cj.jdbc.ConnectionImpl@404bd1fb] will not be managed by Spring
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getPropertiesById - ==>  Preparing: select * from goods_properties where goods_id=?
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getPropertiesById - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getPropertiesById - <==      Total: 3
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e76fb1d]
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6ccca9c4] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1958482581 wrapping com.mysql.cj.jdbc.ConnectionImpl@404bd1fb] will not be managed by Spring
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getDetailsPictures - ==>  Preparing: select picture from goods_pictures where goods_id =? and type = 2
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getDetailsPictures - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getDetailsPictures - <==      Total: 4
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6ccca9c4]
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@760c67dc] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@373768267 wrapping com.mysql.cj.jdbc.ConnectionImpl@404bd1fb] will not be managed by Spring
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getMainPicturesById - ==>  Preparing: select picture from goods_pictures where goods_id =? and type = 1
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getMainPicturesById - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getMainPicturesById - <==      Total: 5
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@760c67dc]
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6a1e2e94] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1848032321 wrapping com.mysql.cj.jdbc.ConnectionImpl@404bd1fb] will not be managed by Spring
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getSkuItemByGoodsId - ==>  Preparing: select * from goods_skus where goods_id = ?
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getSkuItemByGoodsId - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getSkuItemByGoodsId - <==      Total: 2
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6a1e2e94]
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2130e0f2] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@576226388 wrapping com.mysql.cj.jdbc.ConnectionImpl@404bd1fb] will not be managed by Spring
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getSpecItemKeyByGoodsId - ==>  Preparing: select * from goods_specs_keys where goods_id = ?
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getSpecItemKeyByGoodsId - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getSpecItemKeyByGoodsId - <==      Total: 2
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2130e0f2]
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@631aad98] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1781218196 wrapping com.mysql.cj.jdbc.ConnectionImpl@404bd1fb] will not be managed by Spring
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - ==>  Preparing: select * from goods_specs_value where specs_id = ?
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - ==> Parameters: 1(String)
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - <==      Total: 1
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@631aad98]
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@269bf1f4] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@899420373 wrapping com.mysql.cj.jdbc.ConnectionImpl@404bd1fb] will not be managed by Spring
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - ==>  Preparing: select * from goods_specs_value where specs_id = ?
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - ==> Parameters: 2(String)
-DEBUG http-nio-9000-exec-2 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - <==      Total: 1
-DEBUG http-nio-9000-exec-2 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@269bf1f4]
-DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
-DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Registered plugin: 'com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor@3f1ddac2'
-DEBUG main com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean - Property 'mapperLocations' was not specified.
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f53a628] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@279755602 wrapping com.mysql.cj.jdbc.ConnectionImpl@5ffc7740] will not be managed by Spring
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getInfo - ==>  Preparing: select * from category where id = ?
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getInfo - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getInfo - <==      Total: 1
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f53a628]
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ab2792d] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1425439037 wrapping com.mysql.cj.jdbc.ConnectionImpl@5ffc7740] will not be managed by Spring
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getPropertiesById - ==>  Preparing: select * from goods_properties where goods_id=?
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getPropertiesById - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getPropertiesById - <==      Total: 3
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ab2792d]
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4e593dbd] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@2112455158 wrapping com.mysql.cj.jdbc.ConnectionImpl@5ffc7740] will not be managed by Spring
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getDetailsPictures - ==>  Preparing: select picture from goods_pictures where goods_id =? and type = 2
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getDetailsPictures - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getDetailsPictures - <==      Total: 4
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4e593dbd]
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1db0a9c3] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@189620583 wrapping com.mysql.cj.jdbc.ConnectionImpl@5ffc7740] will not be managed by Spring
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getMainPicturesById - ==>  Preparing: select picture from goods_pictures where goods_id =? and type = 1
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getMainPicturesById - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getMainPicturesById - <==      Total: 5
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1db0a9c3]
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@34e45385] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1914295559 wrapping com.mysql.cj.jdbc.ConnectionImpl@5ffc7740] will not be managed by Spring
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSkuItemByGoodsId - ==>  Preparing: select * from goods_skus where goods_id = ?
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSkuItemByGoodsId - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSkuItemByGoodsId - <==      Total: 2
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@34e45385]
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@53965ca5] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1528345924 wrapping com.mysql.cj.jdbc.ConnectionImpl@5ffc7740] will not be managed by Spring
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecItemKeyByGoodsId - ==>  Preparing: select * from goods_specs_keys where goods_id = ?
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecItemKeyByGoodsId - ==> Parameters: 6(Integer)
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecItemKeyByGoodsId - <==      Total: 2
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@53965ca5]
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1691fee0] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@434789118 wrapping com.mysql.cj.jdbc.ConnectionImpl@5ffc7740] will not be managed by Spring
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - ==>  Preparing: select * from goods_specs_value where specs_id = ?
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - ==> Parameters: 1(String)
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - <==      Total: 1
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1691fee0]
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2e9fafc] was not registered for synchronization because synchronization is not active
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@815691431 wrapping com.mysql.cj.jdbc.ConnectionImpl@5ffc7740] will not be managed by Spring
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - ==>  Preparing: select * from goods_specs_value where specs_id = ?
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - ==> Parameters: 2(String)
-DEBUG http-nio-9000-exec-1 com.shop.service.mapper.GoodsMapper.getSpecValueBySpecId - <==      Total: 1
-DEBUG http-nio-9000-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2e9fafc]
+DEBUG http-nio-9000-exec-4 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4395d9c9]
+DEBUG http-nio-9000-exec-4 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG http-nio-9000-exec-4 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@337d793b] was not registered for synchronization because synchronization is not active
+DEBUG http-nio-9000-exec-4 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1264337201 wrapping com.mysql.cj.jdbc.ConnectionImpl@23574032] will not be managed by Spring
+DEBUG http-nio-9000-exec-4 com.shop.service.mapper.GoodsMapper.getPropertiesById - ==>  Preparing: select * from goods_properties where goods_id=?
+DEBUG http-nio-9000-exec-4 com.shop.service.mapper.GoodsMapper.getPropertiesById - ==> Parameters: 6(Integer)
+DEBUG http-nio-9000-exec-4 com.shop.service.mapper.GoodsMapper.getPropertiesById - <==      Total: 3
+DEBUG http-nio-9000-exec-4 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@337d793b]
+DEBUG http-nio-9000-exec-4 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG http-nio-9000-exec-4 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5c9117e0] was not registered for synchronization because synchronization is not active
+DEBUG http-nio-9000-exec-4 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@499676094 wrapping com.mysql.cj.jdbc.ConnectionImpl@23574032] will not be managed by Spring
+DEBUG http-nio-9000-exec-4 com.shop.service.mapper.GoodsMapper.getDetailsPictures - ==>  Preparing: select picture from goods_pictures where goods_id =? and type = 2
+DEBUG http-nio-9000-exec-4 com.shop.service.mapper.GoodsMapper.getDetailsPictures - ==> Parameters: 6(Integer)
+DEBUG http-nio-9000-exec-4 com.shop.service.mapper.GoodsMapper.getDetailsPictures - <==      Total: 4
+DEBUG http-nio-9000-exec-4 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5c9117e0]
+DEBUG http-nio-9000-exec-4 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG http-nio-9000-exec-4 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@43f11911] was not registered for synchronization because synchronization is not active
+DEBUG http-nio-9000-exec-4 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1353993746 wrapping com.mysql.cj.jdbc.ConnectionImpl@23574032] will not be managed by Spring
+DEBUG http-nio-9000-exec-4 com.shop.service.mapper.GoodsMapper.getMainPicturesById - ==>  Preparing: select picture from goods_pictures where goods_id =? and type = 1
+DEBUG http-nio-9000-exec-4 com.shop.service.mapper.GoodsMapper.getMainPicturesById - ==> Parameters: 6(Integer)
+DEBUG http-nio-9000-exec-4 com.shop.service.mapper.GoodsMapper.getMainPicturesById - <==      Total: 5
+DEBUG http-nio-9000-exec-4 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@43f11911]
