@@ -16,9 +16,7 @@ public class Cart {
     private String Id;
     /** 商品 ID */
     private String goodsId;
-    /** SKU ID */
-    private String skuId;
-    /** SKU ID */
+    /** 用户 ID */
     private String userId;
     /** 商品名称 */
     private String name;
@@ -34,10 +32,5 @@ public class Cart {
     private Integer stock;
     /** 是否选中 */
     private Boolean selected;
-    /** 属性文字 */
-    @TableField(exist = false)
-    private String  attrsText;
-    /** 是否为有效商品 */
-    private Boolean  isEffective;
 
 }

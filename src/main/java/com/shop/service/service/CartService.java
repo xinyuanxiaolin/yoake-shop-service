@@ -7,7 +7,13 @@ import java.util.List;
 public interface CartService {
 
 
-    void add(String skuId, Integer count);
+    void add(String goodsId, Integer count);
 
     List<Cart> get();
+
+    void delete(List<String> ids);
+
+    void put(String goodsId, Cart cart);
+
+    void putSelected(Cart cart);
 }

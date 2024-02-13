@@ -18,9 +18,9 @@ public class GoodsDetail {
     /** 商品描述 */
     private String desc;
     /** 当前价格 */
-    private Double price;
+    private Double nowPrice;
     /** 原价 */
-    private Double oldPrice;
+    private Double price;
     /** 商品详情: 包含详情属性 + 详情图片 */
     private Details details;
     /** 主图图片集合[ 主图图片链接 ] */

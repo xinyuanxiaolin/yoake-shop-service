@@ -27,10 +27,12 @@ public class CategoryTopItem {
     /** 商品描述 */
     @TableField("`desc`")  //使用模版字符串套住
     private  String desc;
-    /** 商品已下单数量 */
-    private Integer orderNum;
-    /** 商品价格 */
-    private Integer price;
+    /** 商品库存 */
+    private Integer stock;
+    /** 商品原价格 */
+    private Double price;
+    /** 商品现价格 */
+    private Double nowPrice;
     /** 商品折扣 */
     private Integer discount;
     /** 一级分类图片集[ 一级分类图片项 ] */

@@ -22,11 +22,13 @@ public class GoodsItem {
     private Integer discount;
     /** 商品名称 */
     private String name;
-    /** 商品已下单数量 */
-    private Integer orderNum;
+    /** 商品库存 */
+    private Integer stock;
     /** 商品图片 */
     private String picture;
-    /** 商品价格 */
-    private Integer price;
+    /** 商品原价格 */
+    private Double price;
+    /** 商品现价格 */
+    private Double nowPrice;
 
 }
