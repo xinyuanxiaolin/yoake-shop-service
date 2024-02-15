@@ -9,8 +9,11 @@ import com.shop.service.mapper.OrderMapper;
 import com.shop.service.pojo.Address;
 import com.shop.service.pojo.Cart;
 
+import com.shop.service.pojo.category.CategoryTopItem;
+import com.shop.service.pojo.goods.GoodsItem;
 import com.shop.service.pojo.order.GoodsList;
 import com.shop.service.pojo.order.OrderCreateParams;
+import com.shop.service.pojo.order.OrderProducts;
 import com.shop.service.pojo.order.Orders;
 import com.shop.service.pojo.order.orderPre.OrderPreGoods;
 import com.shop.service.pojo.order.orderPre.OrderPreResult;
@@ -18,6 +21,7 @@ import com.shop.service.pojo.order.orderPre.Summary;
 import com.shop.service.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -108,7 +112,7 @@ public class OrderServiceImpl implements OrderService {
     public Orders postOrder(OrderCreateParams data) {
         //新建一个Orders对象
         Orders orders = new Orders(null,jwtToken.getUserIdByToken(),1,null,null,
-                null, LocalDateTime.now(),5,null,null, data.getBuyerMessage(), null);
+                null, LocalDateTime.now(),5,null,null, data.getBuyerMessage(), null,null);
 
         //接下去去利用addressId查询到相关地址信息和联系人相关信息
         Address address= addressMapper.selectById(data.getAddressId());
@@ -128,6 +132,36 @@ public class OrderServiceImpl implements OrderService {
 
         return orders;
     }
+
+    //获得订单详情
+    @Override
+    public Orders getOrderById(Integer id) {
+        //先获取到基本信息
+        Orders order = orderMapper.selectById(id);
+        order.setTotalMoney(0.0);
+        order.setTotalNum(0);
+        //开始写入商品列表,总价,加上运费后应付金额
+        //获取下商品Id及他的数量
+        List<OrderProducts> orderProducts = orderMapper.getOrderProducts(order.getId());
+        //商品列表
+        List<CategoryTopItem> categoryTopItem = new ArrayList<>();
+        orderProducts.stream().map(v->{
+            //获取到商品的详情信息
+            CategoryTopItem data = goodsMapper.selectById(v.getGoodsId());
+            categoryTopItem.add(data);
+            //然后在获取总价格
+            order.setTotalMoney(order.getTotalMoney()+data.getNowPrice()*v.getQuantity());
+            //设置总数量
+            order.setTotalNum(order.getTotalNum()+v.getQuantity());
+            return v;
+        }).collect(Collectors.toList());
+        //设置商品列表
+        order.setGoods(categoryTopItem);
+        //接下来加上运费后应付金额
+        order.setPayMoney(order.getTotalMoney()+ order.getPostFee());
+        return order;
+    }
+
 
 
 }

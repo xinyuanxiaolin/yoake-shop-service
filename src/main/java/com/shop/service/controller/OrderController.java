@@ -44,5 +44,13 @@ public class OrderController {
         return Result.success(res);
     }
 
+    /*获取订单详情*/
+    @GetMapping("/{id}")
+    public Result getOrderById(@PathVariable Integer id){
+
+        Orders res =orderService.getOrderById(id);
+        return Result.success(res);
+    }
+
 
 }

@@ -14,4 +14,6 @@ public interface OrderService {
     OrderPreResult getPre();
 
     Orders postOrder(OrderCreateParams data);
+
+    Orders getOrderById(Integer id);
 }

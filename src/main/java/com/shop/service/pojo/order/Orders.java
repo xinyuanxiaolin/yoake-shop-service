@@ -1,6 +1,7 @@
 package com.shop.service.pojo.order;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.shop.service.pojo.category.CategoryTopItem;
 import com.shop.service.pojo.goods.GoodsItem;
 import com.shop.service.pojo.order.orderPre.OrderPreGoods;
 import lombok.AllArgsConstructor;
@@ -32,14 +33,19 @@ public class Orders {
     /** 运费*/
     private Integer postFee;
     /** 商品总价*/
+    @TableField(exist = false)
     private Double totalMoney;
     /** 加上运费后应付金额*/
+    @TableField(exist = false)
     private Double payMoney;
     /** 订单备注*/
     private String buyerMessage;
+    /** 总数量*/
+    @TableField(exist = false)
+    private Integer totalNum;
     /** 商品列表*/
     @TableField(exist = false)
-    private List<GoodsItem> goods;
+    private List<CategoryTopItem> goods;
 
 
 
