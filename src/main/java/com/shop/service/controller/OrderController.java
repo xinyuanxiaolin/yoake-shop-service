@@ -28,6 +28,8 @@ public class OrderController {
     @Autowired
     private JwtToken jwtToken;
 
+    /** 预购模块*/
+
     /*填写订单-获取直接购买订单*/
     @GetMapping("pre/now")
     public Result getOrderPreNow(@RequestParam(value = "goodsId") Integer goodsId,
@@ -46,6 +48,8 @@ public class OrderController {
         return Result.success(res);
 
     }
+
+    /** 订单增删改查模块*/
     /*提交订单*/
     @PostMapping
     public Result postOrder(@RequestBody OrderCreateParams data){
@@ -104,5 +108,21 @@ public class OrderController {
 
     }
 
+    /**货物运输模块*/
 
+    //模拟发货
+    @GetMapping("consignment/{id}")
+    public Result getOrderConsignment(@PathVariable String id){
+        //将待发货(2)装变为待收货(3)
+        orderService.changeOrderState(id,3);
+        return Result.success();
+    }
+
+    //确认收货
+    @PutMapping("/{id}/receipt")
+    public Result getOrderReceipt(@PathVariable String id){
+        //将待收货(3)装变为待评价(4)
+        orderService.changeOrderState(id,4);
+        return Result.success();
+    }
 }

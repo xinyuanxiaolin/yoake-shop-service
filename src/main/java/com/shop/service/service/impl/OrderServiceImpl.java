@@ -8,9 +8,8 @@ import com.shop.service.mapper.*;
 import com.shop.service.pojo.Address;
 import com.shop.service.pojo.Cart;
 
-import com.shop.service.pojo.User;
+
 import com.shop.service.pojo.category.CategoryTopItem;
-import com.shop.service.pojo.goods.GoodsItem;
 import com.shop.service.pojo.order.GoodsList;
 import com.shop.service.pojo.order.OrderCreateParams;
 import com.shop.service.pojo.order.OrderProducts;
@@ -21,7 +20,6 @@ import com.shop.service.pojo.order.orderPre.Summary;
 import com.shop.service.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -179,6 +177,16 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implement
         orderMapper.deleteBatchIds(ids);
         //删除订单商品关联表的数据
         orderMapper.deleteOrderProducts(ids);
+    }
+
+
+
+    //改变订单相关状态
+    @Override
+    public void changeOrderState(String id, int i) {
+        UpdateWrapper<Orders> updateWrapper =new UpdateWrapper<>();
+        updateWrapper.eq("id",id).eq("user_id",jwtToken.getUserIdByToken()).set("order_state",i);
+        orderMapper.update(null,updateWrapper);
     }
 
 

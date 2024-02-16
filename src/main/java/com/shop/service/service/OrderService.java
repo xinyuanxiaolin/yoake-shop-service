@@ -23,4 +23,6 @@ public interface OrderService extends IService<Orders> {
     void cancelOrder(Integer id, String cancelReason);
 
     void deleteOrder(List<String> ids);
+
+    void changeOrderState(String id, int i);
 }
