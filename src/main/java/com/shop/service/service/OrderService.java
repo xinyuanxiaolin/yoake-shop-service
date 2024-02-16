@@ -1,11 +1,14 @@
 package com.shop.service.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.shop.service.pojo.order.OrderCreateParams;
 import com.shop.service.pojo.order.Orders;
 import com.shop.service.pojo.order.orderPre.OrderPreResult;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public interface OrderService {
+import java.util.List;
+
+public interface OrderService extends IService<Orders> {
 
 
 
@@ -16,4 +19,8 @@ public interface OrderService {
     Orders postOrder(OrderCreateParams data);
 
     Orders getOrderById(Integer id);
+
+    void cancelOrder(Integer id, String cancelReason);
+
+    void deleteOrder(List<String> ids);
 }

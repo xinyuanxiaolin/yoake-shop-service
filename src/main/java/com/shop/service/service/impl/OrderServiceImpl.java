@@ -1,14 +1,14 @@
 package com.shop.service.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.shop.service.common.JwtToken;
-import com.shop.service.mapper.AddressMapper;
-import com.shop.service.mapper.CartMapper;
-import com.shop.service.mapper.GoodsMapper;
-import com.shop.service.mapper.OrderMapper;
+import com.shop.service.mapper.*;
 import com.shop.service.pojo.Address;
 import com.shop.service.pojo.Cart;
 
+import com.shop.service.pojo.User;
 import com.shop.service.pojo.category.CategoryTopItem;
 import com.shop.service.pojo.goods.GoodsItem;
 import com.shop.service.pojo.order.GoodsList;
@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Service
-public class OrderServiceImpl implements OrderService {
+public class OrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implements OrderService {
     @Autowired
     private OrderMapper orderMapper;
     @Autowired
@@ -112,7 +112,7 @@ public class OrderServiceImpl implements OrderService {
     public Orders postOrder(OrderCreateParams data) {
         //新建一个Orders对象
         Orders orders = new Orders(null,jwtToken.getUserIdByToken(),1,null,null,
-                null, LocalDateTime.now(),5,null,null, data.getBuyerMessage(), null,null);
+                null, LocalDateTime.now(),5,null,null, data.getBuyerMessage(), null,null,null);
 
         //接下去去利用addressId查询到相关地址信息和联系人相关信息
         Address address= addressMapper.selectById(data.getAddressId());
@@ -162,6 +162,24 @@ public class OrderServiceImpl implements OrderService {
         return order;
     }
 
+    //取消订单
+    @Override
+    public void cancelOrder(Integer id, String cancelReason) {
+        //当订单状态为待付款(1)时取消订单
+        UpdateWrapper<Orders> updateWrapper =new UpdateWrapper<>();
+        updateWrapper.eq("id",id).eq("order_state",1).set("order_state",6)
+                .set(cancelReason!=null,"cancel_reason",cancelReason);
+        orderMapper.update(null,updateWrapper);
+    }
+
+    //删除订单
+    @Override
+    public void deleteOrder(List<String> ids) {
+        //删除订单表的数据
+        orderMapper.deleteBatchIds(ids);
+        //删除订单商品关联表的数据
+        orderMapper.deleteOrderProducts(ids);
+    }
 
 
 }

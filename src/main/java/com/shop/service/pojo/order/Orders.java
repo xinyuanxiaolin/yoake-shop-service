@@ -46,6 +46,8 @@ public class Orders {
     /** 商品列表*/
     @TableField(exist = false)
     private List<CategoryTopItem> goods;
+    /** 取消订单理由*/
+    private String cancelReason;
 
 
 

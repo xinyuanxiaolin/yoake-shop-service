@@ -3,10 +3,7 @@ package com.shop.service.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.shop.service.pojo.order.OrderProducts;
 import com.shop.service.pojo.order.Orders;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -18,4 +15,6 @@ public interface OrderMapper extends BaseMapper<Orders> {
 
     @Select("select * from order_products where order_id = #{id}")
     List<OrderProducts> getOrderProducts(Integer id);
+
+    void deleteOrderProducts(@Param("ids") List<String> ids);
 }
