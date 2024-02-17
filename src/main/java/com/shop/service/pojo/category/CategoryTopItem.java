@@ -35,6 +35,8 @@ public class CategoryTopItem {
     private Double nowPrice;
     /** 商品折扣 */
     private Integer discount;
+    /** 列表等级*/
+    private Integer listLevel;
     /** 一级分类图片集[ 一级分类图片项 ] */
     @TableField(exist = false)
     private List<String> imageBanners;

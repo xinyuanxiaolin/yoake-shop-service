@@ -28,4 +28,8 @@ public interface GoodsMapper extends BaseMapper<CategoryTopItem> {
 
 
     List<OrderPreGoods> getOrderPreGoods( @Param("ids") List<Integer> ids);
+
+
+    @Select("select id from category where parent_id = #{id}")
+    List<Integer> getLevel3Ids(Integer id);
 }

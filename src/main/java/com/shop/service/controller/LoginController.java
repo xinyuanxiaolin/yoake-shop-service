@@ -30,7 +30,10 @@ public class LoginController {
     public Result login(@RequestBody Admin admin){
         log.info("员工登录:{},",admin);
         if(admin.getAccount().equals("admin")&&admin.getPassword().equals("123456")){
-            return Result.success();
+            Map<String,Object> claims = new HashMap<>();
+            claims.put("id","admin");
+            String jwt = JwtUtils.GetJWT(claims);
+            return Result.success(jwt);
         }
         return  Result.error("用户名或者密码错误!");
 

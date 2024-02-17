@@ -1,9 +1,11 @@
 package com.shop.service.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.shop.service.mapper.GoodsMapper;
 import com.shop.service.pojo.category.CategoryChildItem;
 import com.shop.service.pojo.category.CategoryTopItem;
+import com.shop.service.pojo.category.PutCategory;
 import com.shop.service.pojo.goods.*;
 import com.shop.service.service.GoodsService;
 import lombok.extern.slf4j.Slf4j;
@@ -11,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -92,6 +95,70 @@ public class GoodsServiceImpl implements GoodsService  {
 
         log.info("商品值:{}",goodsDetail);
         return goodsDetail;
+    }
+
+
+    /** 管理员模块*/
+    //添加分类
+    @Override
+    public void addCategory(String name, Integer level, String picture,Integer parentId) {
+        CategoryTopItem categoryTopItem =new CategoryTopItem();
+        if (level==1){
+            //证明是一级分类,父节点设置为0
+            categoryTopItem.setParentId(0);
+        }else if(level ==2 && parentId !=null){
+            //证明是二级列表,父节点设置为传来的一级列表id
+            categoryTopItem.setParentId(parentId);
+
+        }
+        categoryTopItem.setName(name);
+        categoryTopItem.setPicture(picture);
+        categoryTopItem.setListLevel(level);
+        goodsMapper.insert(categoryTopItem);
+    }
+
+    //删除一级分类,即对应的二级分类和商品也全部删除
+    @Override
+    public void deleteOneCategory(Integer id) {
+        //建立一个全部删除的ids
+        List<Integer> deleteIds =new ArrayList<>();
+        deleteIds.add(id);
+        //先获取二级分类
+        QueryWrapper<CategoryTopItem> queryWrapper =new QueryWrapper<>();
+        queryWrapper.eq("parent_id",id);
+        List<CategoryTopItem> level2 = goodsMapper.selectList(queryWrapper);
+        //获取三级商品列表ids
+        level2.forEach(v->{
+            deleteIds.add(v.getId());
+           List<Integer> ids = goodsMapper.getLevel3Ids(v.getId());
+            deleteIds.addAll(ids);
+        });
+        //删除所有相关联的id
+        goodsMapper.deleteBatchIds(deleteIds);
+    }
+
+    //删除二级分类,其下对应的三级商品也同样删除
+    @Override
+    public void deleteTwoCategory(Integer id) {
+        //建立一个全部删除的ids
+        List<Integer> deleteIds =new ArrayList<>();
+        //把二级分类id添加进去
+        deleteIds.add(id);
+        //获取三级商品列表ids
+        List<Integer> ids = goodsMapper.getLevel3Ids(id);
+        deleteIds.addAll(ids);
+        //删除所有相关联的id
+        goodsMapper.deleteBatchIds(deleteIds);
+
+
+    }
+
+    //修改分类id
+    @Override
+    public void putCategory(PutCategory data) {
+        UpdateWrapper<CategoryTopItem> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.eq("id",data.getId()).set("name",data.getName()).set("picture",data.getPicture());
+        goodsMapper.update(null,updateWrapper);
     }
 
 
