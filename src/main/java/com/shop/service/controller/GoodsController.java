@@ -4,14 +4,14 @@ import com.shop.service.pojo.Result;
 import com.shop.service.pojo.category.AddCategory;
 import com.shop.service.pojo.category.CategoryTopItem;
 import com.shop.service.pojo.category.PutCategory;
+import com.shop.service.pojo.goods.AdminGoodsDetail;
 import com.shop.service.pojo.goods.GoodsDetail;
+import com.shop.service.pojo.goods.GoodsPublishAndEdit;
 import com.shop.service.service.GoodsService;
-import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 //商品和分类相关接口
 @RestController
@@ -42,7 +42,7 @@ public class GoodsController {
     }
 
 
-    /** 管理员模块*/
+    /** 管理员模块-分类管理*/
     //添加分类
     @PostMapping("/category")
     public Result addCategory(@RequestBody AddCategory data){
@@ -76,5 +76,39 @@ public class GoodsController {
         return Result.success();
 
     }
+
+    /** 管理员模块-商品管理*/
+
+    //发布商品
+    @PostMapping("/goods/publish")
+    public Result publishGoods(@RequestBody GoodsPublishAndEdit data){
+        goodsService.publishGoods(data);
+        return Result.success();
+    }
+
+    //获取商品列表
+    @GetMapping("/goods/list")
+    public Result goodsDetail(){
+       List<AdminGoodsDetail> res = goodsService.goodsDetail();
+
+        return Result.success(res);
+    }
+    //获取商品信息通过id
+    @GetMapping("/goods/detail")
+    public Result getGoodsById(@RequestParam(name = "parentId") Integer parentId,@RequestParam(name = "id")Integer id){
+        GoodsPublishAndEdit res = goodsService.getGoodsById(parentId,id);
+        return Result.success(res);
+    }
+
+
+    //编辑商品
+    @PutMapping("/goods")
+    public Result putGoods(@RequestBody GoodsPublishAndEdit data){
+        goodsService.putGoods(data);
+       return Result.success();
+
+
+    }
+
 
 }

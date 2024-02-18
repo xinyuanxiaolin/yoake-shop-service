@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -99,6 +98,8 @@ public class GoodsServiceImpl implements GoodsService  {
 
 
     /** 管理员模块*/
+    /** 分类模块*/
+
     //添加分类
     @Override
     public void addCategory(String name, Integer level, String picture,Integer parentId) {
@@ -159,6 +160,83 @@ public class GoodsServiceImpl implements GoodsService  {
         UpdateWrapper<CategoryTopItem> updateWrapper = new UpdateWrapper<>();
         updateWrapper.eq("id",data.getId()).set("name",data.getName()).set("picture",data.getPicture());
         goodsMapper.update(null,updateWrapper);
+    }
+
+
+    /** 商品管理模块*/
+
+    //发布商品
+    @Override
+    public void publishGoods(GoodsPublishAndEdit data) {
+        //首先吧基本商品信息存到分类商品表中
+        CategoryTopItem goods = new CategoryTopItem(null, data.getName(), data.getCategoryList().get(1),data.getMainPictures().get(0),
+                data.getDesc(), data.getStock(), data.getPrice(), data.getPrice(), null,3,null,null);
+        goodsMapper.insert(goods);
+        //然后把商品主图列表和海报图列表存到对应的goods_pictures表中
+        goodsMapper.putPictures(goods.getId(),data.getMainPictures(),1);
+        //商品海报可为空
+        if(data.getPictures() != null){
+            goodsMapper.putPictures(goods.getId(),data.getPictures(),2);
+        }
+        //然后商品的属性描述放到goods_properties表中
+        goodsMapper.putProperties(goods.getId(),data.getProperties());
+    }
+
+    //获取所有商品详情
+    @Override
+    public List<AdminGoodsDetail> goodsDetail() {
+        //拿到三级列表全部数据
+        List<AdminGoodsDetail> data = goodsMapper.getLevel3Detail();
+        data.forEach(v->{
+            //分类获取他的二级分类名字
+            v.setCategory(goodsMapper.selectById(v.getParentId()).getName());
+        });
+
+        return data;
+    }
+
+    //通过id获取基本商品信息
+    @Override
+    public GoodsPublishAndEdit getGoodsById(Integer parentId, Integer id) {
+        //获取基本三级商品信息
+        CategoryTopItem categoryTopItem = goodsMapper.selectById(id);
+        GoodsPublishAndEdit data = new GoodsPublishAndEdit(id,null,null,null, categoryTopItem.getName(),
+                categoryTopItem.getStock(), categoryTopItem.getPrice(), categoryTopItem.getDesc(), null);
+        //先去找二级分类的父节点id
+        //获取二级分类,然后提取出一级分类的id
+        CategoryTopItem two = goodsMapper.selectById(parentId);
+        //放入分类
+        List<Integer> list =new ArrayList<>();
+        list.add(two.getParentId());
+        list.add(parentId);
+        data.setCategoryList(list);
+        //找主图和海报图集通过商品id
+        data.setMainPictures(goodsMapper.getMainPicturesById(id));
+        data.setPictures(goodsMapper.getDetailsPictures(id));
+        //找商品对应的属性
+        data.setProperties(goodsMapper.getPropertiesById(id));
+
+        return data;
+    }
+
+    //修改商品
+    @Override
+    public void putGoods(GoodsPublishAndEdit data) {
+        //先通过id修改基本的
+        UpdateWrapper<CategoryTopItem> updateWrapper =new UpdateWrapper<>();
+        updateWrapper.eq("id",data.getId()).set("name",data.getName()).set("parent_id",data.getCategoryList().get(1))
+                        .set("picture",data.getMainPictures().get(0)).set("`desc`",data.getDesc()).set("price",data.getPrice())
+                        .set("now_price",data.getPrice()).set("stock",data.getStock());
+
+        goodsMapper.update(null,updateWrapper);
+        //接着修改主图合集和海报合集,通过删除原来的,增加新的来达成
+        goodsMapper.deletePictures(data.getId());
+        goodsMapper.putPictures(data.getId(), data.getMainPictures(),1);
+        goodsMapper.putPictures(data.getId(), data.getPictures(),2);
+        //修改属性,通过删除原来的,增加新的来达成
+        goodsMapper.deleteProperties(data.getId());
+        goodsMapper.putProperties(data.getId(), data.getProperties());
+
     }
 
 

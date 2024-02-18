@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.shop.service.pojo.category.CategoryTopItem;
 import com.shop.service.pojo.goods.*;
 import com.shop.service.pojo.order.orderPre.OrderPreGoods;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -32,4 +33,18 @@ public interface GoodsMapper extends BaseMapper<CategoryTopItem> {
 
     @Select("select id from category where parent_id = #{id}")
     List<Integer> getLevel3Ids(Integer id);
+
+    void putPictures(@Param("id") Integer id, @Param("pictures") List<String> pictures, @Param("type") int type);
+
+    void putProperties(@Param("id") Integer id, @Param("properties") List<DetailsPropertyItem> properties);
+
+    @Select("select * from category where list_level=3")
+    List<AdminGoodsDetail> getLevel3Detail();
+
+
+    @Delete("delete from goods_pictures where goods_id=#{id}")
+    void deletePictures(Integer id);
+
+    @Delete("delete from goods_properties where goods_id =#{id}")
+    void deleteProperties(Integer id);
 }

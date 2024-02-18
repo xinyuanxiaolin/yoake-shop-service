@@ -1,13 +1,12 @@
 package com.shop.service.service;
 
-import com.shop.service.pojo.Guess;
-import com.shop.service.pojo.category.CategoryChildItem;
 import com.shop.service.pojo.category.CategoryTopItem;
 import com.shop.service.pojo.category.PutCategory;
+import com.shop.service.pojo.goods.AdminGoodsDetail;
 import com.shop.service.pojo.goods.GoodsDetail;
+import com.shop.service.pojo.goods.GoodsPublishAndEdit;
 
 import java.util.List;
-import java.util.Map;
 
 public interface GoodsService{
     List<CategoryTopItem> getCategoryTop();
@@ -22,4 +21,12 @@ public interface GoodsService{
     void deleteTwoCategory(Integer id);
 
     void putCategory(PutCategory data);
+
+    void publishGoods(GoodsPublishAndEdit data);
+
+    List<AdminGoodsDetail> goodsDetail();
+
+    GoodsPublishAndEdit getGoodsById(Integer parentId, Integer id);
+
+    void putGoods(GoodsPublishAndEdit data);
 }

@@ -26,7 +26,7 @@ public class CategoryTopItem {
     private String picture;
     /** 商品描述 */
     @TableField("`desc`")  //使用模版字符串套住
-    private  String desc;
+    private String desc;
     /** 商品库存 */
     private Integer stock;
     /** 商品原价格 */

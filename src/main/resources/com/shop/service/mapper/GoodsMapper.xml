@@ -3,6 +3,20 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shop.service.mapper.GoodsMapper">
+    <!--插入图片到goods_pictures表-->
+    <insert id="putPictures">
+        insert into goods_pictures(picture, goods_id, type) values
+        <foreach collection="pictures" item="item" index="index" separator=",">
+            (#{item},#{id},#{type})
+        </foreach>
+    </insert>
+    <!--插入商品属性到goods_properties-->
+    <insert id="putProperties">
+        insert into goods_properties(name, value, goods_id) values
+        <foreach collection="properties" item="item" index="index" separator=",">
+            (#{item.name},#{item.value} ,#{id})
+        </foreach>
+    </insert>
 
     <select id="getOrderPreGoods" resultType="com.shop.service.pojo.order.orderPre.OrderPreGoods">
         select * from category where id in
