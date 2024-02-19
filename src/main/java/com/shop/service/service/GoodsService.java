@@ -29,4 +29,6 @@ public interface GoodsService{
     GoodsPublishAndEdit getGoodsById(Integer parentId, Integer id);
 
     void putGoods(GoodsPublishAndEdit data);
+
+    void deleteGoodsByIds(List<Integer> ids);
 }

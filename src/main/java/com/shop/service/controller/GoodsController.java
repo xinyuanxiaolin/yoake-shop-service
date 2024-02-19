@@ -109,6 +109,12 @@ public class GoodsController {
 
 
     }
+    //删除单个商品或者批量删除
+    @DeleteMapping("/goods/{ids}")
+    public Result deleteGoods(@PathVariable List<Integer> ids){
+        goodsService.deleteGoodsByIds(ids);
+        return Result.success();
+    }
 
 
 }

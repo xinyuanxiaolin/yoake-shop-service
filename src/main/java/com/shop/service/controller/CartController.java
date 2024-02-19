@@ -41,9 +41,9 @@ public class CartController {
       修改购物单品
      selected 选中状态 count 商品数量
      */
-    @PutMapping("/{goodsId}")
-    public Result putCart(@PathVariable String goodsId,@RequestBody Cart cart){
-        cartService.put(goodsId,cart);
+    @PutMapping("/{id}")
+    public Result putCart(@PathVariable String id,@RequestBody Cart cart){
+        cartService.put(id,cart);
         return Result.success();
     }
 

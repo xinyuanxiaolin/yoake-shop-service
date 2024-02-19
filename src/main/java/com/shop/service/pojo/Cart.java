@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 /** 购物车类型 */
 public class Cart {
-    /** 商品 ID */
+    /** 购物车ID */
     @TableId
     private String Id;
     /** 商品 ID */

@@ -17,5 +17,7 @@ public class OrderCreateParams {
     private String buyerMessage;
     /** 商品集合[ 商品信息 ] */
     private List<GoodsList> goods;
+    /** 提交订单方式,1为直接购买,2为购物车购买*/
+    private Integer payType;
 
 }

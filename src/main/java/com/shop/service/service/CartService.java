@@ -13,7 +13,7 @@ public interface CartService {
 
     void delete(List<String> ids);
 
-    void put(String goodsId, Cart cart);
+    void put(String id, Cart cart);
 
     void putSelected(Cart cart);
 }

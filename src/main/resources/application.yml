@@ -38,3 +38,4 @@ mybatis-plus:
       id-type: auto #使用数据库自带的id自增方法,如果不开启默认是mp自带的雪花算法生成的id
 
 
+

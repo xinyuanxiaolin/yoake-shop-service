@@ -34,7 +34,7 @@ public class GoodsServiceImpl implements GoodsService  {
     //获取一级列表
     @Override
     public List<CategoryTopItem> getCategoryTop(){
-        return goodsMapper.selectList(new QueryWrapper<CategoryTopItem>().eq("parent_id",0));
+        return goodsMapper.selectList(new QueryWrapper<CategoryTopItem>().eq("parent_id",0).last("LIMIT 10"));
     }
 
     //获取多级列表
@@ -175,7 +175,7 @@ public class GoodsServiceImpl implements GoodsService  {
         //然后把商品主图列表和海报图列表存到对应的goods_pictures表中
         goodsMapper.putPictures(goods.getId(),data.getMainPictures(),1);
         //商品海报可为空
-        if(data.getPictures() != null){
+        if(data.getPictures().size()!=0){
             goodsMapper.putPictures(goods.getId(),data.getPictures(),2);
         }
         //然后商品的属性描述放到goods_properties表中
@@ -232,10 +232,20 @@ public class GoodsServiceImpl implements GoodsService  {
         //接着修改主图合集和海报合集,通过删除原来的,增加新的来达成
         goodsMapper.deletePictures(data.getId());
         goodsMapper.putPictures(data.getId(), data.getMainPictures(),1);
-        goodsMapper.putPictures(data.getId(), data.getPictures(),2);
+//        海报图不是必填
+        if(data.getPictures().size()!=0){
+            goodsMapper.putPictures(data.getId(), data.getPictures(),2);
+        }
         //修改属性,通过删除原来的,增加新的来达成
         goodsMapper.deleteProperties(data.getId());
         goodsMapper.putProperties(data.getId(), data.getProperties());
+
+    }
+
+    //删除单个商品或者批量删除商品
+    @Override
+    public void deleteGoodsByIds(List<Integer> ids) {
+        goodsMapper.deleteBatchIds(ids);
 
     }
 

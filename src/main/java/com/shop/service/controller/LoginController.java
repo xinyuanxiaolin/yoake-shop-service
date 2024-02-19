@@ -1,6 +1,7 @@
 package com.shop.service.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.shop.service.pojo.LoginResult;
 import com.shop.service.pojo.Result;
 import com.shop.service.pojo.Admin;
 import com.shop.service.pojo.User;
@@ -45,9 +46,9 @@ public class LoginController {
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("account",user.getAccount())
                         .eq("password",user.getPassword());
-
-        Result jwt = getResult(queryWrapper);
-        if (jwt != null) return jwt;
+        User e = userService.getOne(queryWrapper);
+        String  jwt = getToken(e.getId(), e.getAccount());
+        Result.success(new LoginResult(e.getId(),e.getAvatar(),e.getAccount(),e.getNickname(),jwt));
         return Result.error("用户名或密码错误");
     }
     //小程序端模拟微信登录
@@ -55,31 +56,30 @@ public class LoginController {
     public Result loginBywxMin(@RequestBody User user){
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("account",user.getAccount());
-        Result jwt = getResult(queryWrapper);
-        if (jwt != null) return jwt;
+        User e = userService.getOne(queryWrapper);
+        if(e!=null){
+            String  jwt = getToken(e.getId(),e.getAccount());
+            return Result.success(new LoginResult(e.getId(),e.getAvatar(),e.getAccount(),e.getNickname(),jwt));
+        }
         //手机号不存在,注册手机号
         user.setCreateTime(LocalDateTime.now());
         if(userService.save(user)){
-            queryWrapper.eq("account",user.getAccount());
-            Result jwt1 = getResult(queryWrapper);
-            if (jwt1 != null) return jwt1;
+            String  jwt1 = getToken(user.getId(),user.getAccount());
+            return Result.success(new LoginResult(user.getId(),user.getAvatar(),user.getAccount(),user.getNickname(),jwt1));
         }
         return Result.error("出错了,请联系管理员");
 
 
     }
 
-    private Result getResult(QueryWrapper<User> queryWrapper) {
-        User e = userService.getOne(queryWrapper);
-        if(e!=null){
+    private String getToken(Long id, String account) {
+
             //            生成令牌
             Map<String,Object> claims = new HashMap<>();
-            claims.put("id",e.getId());
-            claims.put("account",e.getAccount());
+            claims.put("id",id);
+            claims.put("account",account);
             String jwt = JwtUtils.GetJWT(claims);
-            return Result.success(jwt);
-        }
-        return null;
+            return jwt;
     }
 
 }

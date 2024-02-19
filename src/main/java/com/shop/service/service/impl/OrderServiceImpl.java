@@ -127,6 +127,13 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implement
             //把每个商品的id和数量保存到订单和商品的关联表中
             orderMapper.addOrderProducts(list.getCount(), list.getGoodsId(), orders.getId());
         }
+        if(data.getPayType()==2){
+            //在购物车提交订单后其实要清空购物车
+            QueryWrapper<Cart> queryWrapper = new QueryWrapper<>();
+            queryWrapper.eq("user_id",jwtToken.getUserIdByToken()).eq("selected",1);
+            cartMapper.delete(queryWrapper);
+        }
+
 
         return orders;
     }
@@ -143,7 +150,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implement
         List<OrderProducts> orderProducts = orderMapper.getOrderProducts(order.getId());
         //商品列表
         List<CategoryTopItem> categoryTopItem = new ArrayList<>();
-        orderProducts.stream().map(v->{
+        orderProducts.forEach(v->{
             //获取到商品的详情信息
             CategoryTopItem data = goodsMapper.selectById(v.getGoodsId());
             categoryTopItem.add(data);
@@ -151,8 +158,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implement
             order.setTotalMoney(order.getTotalMoney()+data.getNowPrice()*v.getQuantity());
             //设置总数量
             order.setTotalNum(order.getTotalNum()+v.getQuantity());
-            return v;
-        }).collect(Collectors.toList());
+        });
         //设置商品列表
         order.setGoods(categoryTopItem);
         //接下来加上运费后应付金额

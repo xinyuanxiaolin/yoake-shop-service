@@ -63,10 +63,10 @@ public class CartServiceImpl implements CartService {
 
 //修改购物单品
     @Override
-    public void put(String goodsId, Cart cart) {
+    public void put(String id, Cart cart) {
         Integer userId = jwtToken.getUserIdByToken();
         UpdateWrapper<Cart> updateWrapper = new UpdateWrapper<>();
-        updateWrapper.eq("goods_id",goodsId).eq("user_id",userId).set( cart.getCount()!=null,"count",cart.getCount())
+        updateWrapper.eq("id",id).eq("user_id",userId).set( cart.getCount()!=null,"count",cart.getCount())
                 .set(cart.getSelected()!=null,"selected",cart.getSelected());
         cartMapper.update(null,updateWrapper);
     }
