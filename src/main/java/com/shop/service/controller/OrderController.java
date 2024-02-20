@@ -125,4 +125,36 @@ public class OrderController {
         orderService.changeOrderState(id,4);
         return Result.success();
     }
+
+    /** 管理员模块*/
+    /*获取订单列表条件查询管理员版*/
+    @GetMapping("/list")
+    public Result getAOrderList(@RequestParam(defaultValue = "1") Integer pageNum,
+                               @RequestParam(defaultValue = "10") Integer pageSize,
+                               @RequestParam Integer orderState,String searchText){
+        //分页查询获取数据
+        Page<Orders> pages =new Page<>(pageNum,pageSize);
+        QueryWrapper<Orders> queryWrapper =new QueryWrapper<>();
+        //查询需判断两种情况,当orderState为0时应该查询用户相关的所有订单
+        if(orderState!=0) {
+            queryWrapper.eq("order_state", orderState);
+        }
+        //条件查询
+        if(searchText.length()!=0){
+            queryWrapper.and(wrapper -> wrapper.like("id", searchText).or().like("receiver_contact", searchText)
+                    .or().like("receiver_mobile", searchText));
+
+        }
+        //获得分页查询后的数据
+        Page<Orders> orders = orderService.page(pages,queryWrapper);
+        //先进行基本的信息分配
+        OrderListResult res = new OrderListResult(orders.getTotal(),null,orders.getCurrent(),orders.getPages(),orders.getSize());
+        //接下来对商品内的数据进行封装
+        //直接调用通过id获取订单详情
+        List<Orders> ordersList = orders.getRecords();
+        List<Orders> jiegou = ordersList.stream().map(v->orderService.getOrderById(v.getId())).collect(Collectors.toList());
+        res.setItems(jiegou);
+        return Result.success(res);
+    }
+
 }

@@ -152,12 +152,18 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implement
         List<CategoryTopItem> categoryTopItem = new ArrayList<>();
         orderProducts.forEach(v->{
             //获取到商品的详情信息
+
             CategoryTopItem data = goodsMapper.selectById(v.getGoodsId());
-            categoryTopItem.add(data);
-            //然后在获取总价格
-            order.setTotalMoney(order.getTotalMoney()+data.getNowPrice()*v.getQuantity());
-            //设置总数量
-            order.setTotalNum(order.getTotalNum()+v.getQuantity());
+            //由于订单和商品相关联删除会报错,所以只能商品删除了,订单内相关的商品也要删除了
+            if(data!=null){
+                categoryTopItem.add(data);
+                //然后在获取总价格
+                order.setTotalMoney(order.getTotalMoney()+data.getNowPrice()*v.getQuantity());
+                //设置总数量
+                order.setTotalNum(order.getTotalNum()+v.getQuantity());
+            }
+
+
         });
         //设置商品列表
         order.setGoods(categoryTopItem);
@@ -191,7 +197,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implement
     @Override
     public void changeOrderState(String id, int i) {
         UpdateWrapper<Orders> updateWrapper =new UpdateWrapper<>();
-        updateWrapper.eq("id",id).eq("user_id",jwtToken.getUserIdByToken()).set("order_state",i);
+        updateWrapper.eq("id",id).set("order_state",i);
         orderMapper.update(null,updateWrapper);
     }
 

@@ -3,6 +3,7 @@ package com.shop.service.service;
 import com.shop.service.pojo.category.CategoryTopItem;
 import com.shop.service.pojo.category.PutCategory;
 import com.shop.service.pojo.goods.AdminGoodsDetail;
+import com.shop.service.pojo.goods.AdminGoodsDetailList;
 import com.shop.service.pojo.goods.GoodsDetail;
 import com.shop.service.pojo.goods.GoodsPublishAndEdit;
 
@@ -24,7 +25,7 @@ public interface GoodsService{
 
     void publishGoods(GoodsPublishAndEdit data);
 
-    List<AdminGoodsDetail> goodsDetail();
+    AdminGoodsDetailList goodsDetail(Integer pageNum, Integer pageSize, String searchText);
 
     GoodsPublishAndEdit getGoodsById(Integer parentId, Integer id);
 

@@ -5,6 +5,7 @@ import com.shop.service.pojo.category.AddCategory;
 import com.shop.service.pojo.category.CategoryTopItem;
 import com.shop.service.pojo.category.PutCategory;
 import com.shop.service.pojo.goods.AdminGoodsDetail;
+import com.shop.service.pojo.goods.AdminGoodsDetailList;
 import com.shop.service.pojo.goods.GoodsDetail;
 import com.shop.service.pojo.goods.GoodsPublishAndEdit;
 import com.shop.service.service.GoodsService;
@@ -88,8 +89,10 @@ public class GoodsController {
 
     //获取商品列表
     @GetMapping("/goods/list")
-    public Result goodsDetail(){
-       List<AdminGoodsDetail> res = goodsService.goodsDetail();
+    public Result goodsDetail(@RequestParam(defaultValue = "1") Integer pageNum,
+                              @RequestParam(defaultValue = "10") Integer pageSize,
+                              String searchText){
+       AdminGoodsDetailList res = goodsService.goodsDetail(pageNum,pageSize,searchText);
 
         return Result.success(res);
     }

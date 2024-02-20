@@ -24,4 +24,30 @@
             #{id}
         </foreach>
     </select>
+    <!--获取商品列表多条件查询-->
+    <select id="getLevel3Detail" resultType="com.shop.service.pojo.goods.AdminGoodsDetail">
+        select * from category
+        <where>
+             list_level = 3
+            <!-- 如果搜索条件不为空，则添加搜索条件 -->
+            <if test="searchText != null and searchText != ''">
+                and (name like concat('%', #{searchText}, '%')
+                or `desc` LIKE concat('%', #{searchText}, '%'))
+            </if>
+        </where>
+        limit #{pageNum},#{pageSize}
+    </select>
+<!--    获取条件查询总长度-->
+    <select id="getLevel3DetailTotal" resultType="java.lang.Long">
+        select count(*) from category
+        <where>
+            list_level = 3
+            <!-- 如果搜索条件不为空，则添加搜索条件 -->
+            <if test="searchText != null and searchText != ''">
+                and (name like concat('%', #{searchText}, '%')
+                or `desc` like concat('%', #{searchText}, '%'))
+            </if>
+        </where>
+    </select>
+
 </mapper>

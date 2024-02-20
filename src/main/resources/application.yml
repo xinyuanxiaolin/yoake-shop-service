@@ -35,7 +35,7 @@ mybatis-plus:
   global-config:
     db-config:
       update-strategy: not_null #更新策略:只更新非空字段
-      id-type: auto #使用数据库自带的id自增方法,如果不开启默认是mp自带的雪花算法生成的id
+      id-type: auto  #使用数据库自带的id自增方法,如果不开启默认是mp自带的雪花算法生成的id
 
 
 

@@ -51,6 +51,14 @@ public class AddressController {
     //更新收货地址通过地址id
     @PutMapping("/{id}")
     public Result putAddress(@PathVariable Integer id,@RequestBody Address address){
+        //此处做个判断,默认收货地址只能有一个
+        if(address.getIsDefault() ==1){
+            //其他全部置0
+            UpdateWrapper<Address> updateWrapper =new UpdateWrapper<>();
+            updateWrapper.set("is_default",0);
+            addressService.update(updateWrapper);
+        }
+        //接下来继续更新状态
         UpdateWrapper<Address> updateWrapper = new UpdateWrapper<>();
         updateWrapper.eq("id",id);
         addressService.update(address,updateWrapper);

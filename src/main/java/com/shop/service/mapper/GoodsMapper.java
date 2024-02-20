@@ -38,8 +38,8 @@ public interface GoodsMapper extends BaseMapper<CategoryTopItem> {
 
     void putProperties(@Param("id") Integer id, @Param("properties") List<DetailsPropertyItem> properties);
 
-    @Select("select * from category where list_level=3")
-    List<AdminGoodsDetail> getLevel3Detail();
+    List<AdminGoodsDetail> getLevel3Detail(@Param("pageNum") Integer pageNum,@Param("pageSize") Integer pageSize,@Param("searchText") String searchText);
+    Long getLevel3DetailTotal(String searchText);
 
 
     @Delete("delete from goods_pictures where goods_id=#{id}")
@@ -47,4 +47,6 @@ public interface GoodsMapper extends BaseMapper<CategoryTopItem> {
 
     @Delete("delete from goods_properties where goods_id =#{id}")
     void deleteProperties(Integer id);
+
+
 }

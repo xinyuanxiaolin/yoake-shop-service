@@ -184,15 +184,16 @@ public class GoodsServiceImpl implements GoodsService  {
 
     //获取所有商品详情
     @Override
-    public List<AdminGoodsDetail> goodsDetail() {
+    public AdminGoodsDetailList goodsDetail(Integer pageNum,Integer pageSize,String searchText) {
         //拿到三级列表全部数据
-        List<AdminGoodsDetail> data = goodsMapper.getLevel3Detail();
+        List<AdminGoodsDetail> data = goodsMapper.getLevel3Detail(pageNum-1,pageSize,searchText);
+        Long total = goodsMapper.getLevel3DetailTotal(searchText);
         data.forEach(v->{
             //分类获取他的二级分类名字
             v.setCategory(goodsMapper.selectById(v.getParentId()).getName());
         });
 
-        return data;
+        return new AdminGoodsDetailList(total,pageNum,(int)Math.ceil((double)total / pageSize),pageSize,data);
     }
 
     //通过id获取基本商品信息
