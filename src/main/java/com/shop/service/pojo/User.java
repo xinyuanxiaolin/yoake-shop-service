@@ -18,6 +18,7 @@ public class User {
     /** 用户账号 */
     private String account;
     /** 用户密码 */
+    @JsonIgnore
     private String password;
     /** 用户昵称 */
     private String nickname;
@@ -32,6 +33,5 @@ public class User {
     /** 头像 */
     private String avatar;
     /** 创建时间 */
-    @JsonIgnore
     private LocalDateTime createTime;
 }

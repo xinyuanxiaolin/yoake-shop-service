@@ -1,9 +1,12 @@
 package com.shop.service.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.shop.service.common.JwtToken;
 import com.shop.service.pojo.Result;
 import com.shop.service.pojo.User;
+import com.shop.service.pojo.UserList;
 import com.shop.service.service.UserService;
 import com.shop.service.utils.AliOSSUtils;
 import com.shop.service.utils.JwtUtils;
@@ -14,8 +17,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 
 @RestController
 @RequestMapping("/member")
@@ -68,4 +74,43 @@ public class UserController {
         return Result.success(data);
 
     }
+
+    /** 管理员模块*/
+    /*获取所有用户信息*/
+    @GetMapping
+    public Result getUsers(@RequestParam(defaultValue = "1") Integer pageNum,@RequestParam(defaultValue = "10") Integer pageSize,
+    String searchText){
+        Page<User> page =new Page<>(pageNum,pageSize);
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+
+        if(searchText.length()!=0){
+            queryWrapper.like("account",searchText).or().like("nickname",searchText)
+                    .or().like("profession",searchText).or().like("full_location",searchText);
+        }
+        Page<User> data = userService.page(page,queryWrapper);
+        UserList res = new UserList(data.getTotal(),data.getCurrent(),data.getPages(),data.getSize(),data.getRecords());
+        return Result.success(res);
+    }
+
+    /*修改和新增用户数据*/
+    @PutMapping
+    public Result putUsers(@RequestBody User user){
+        if(user.getId()!=null){
+            //证明是修改用户
+            userService.updateById(user);
+        }else{
+            //证明是新增用户
+            user.setCreateTime(LocalDateTime.now());
+            userService.save(user);
+        }
+        return Result.success();
+    }
+
+    /*删除用户*/
+    @DeleteMapping("/{ids}")
+    public Result deleteUsers(@PathVariable List<Integer> ids){
+        userService.removeBatchByIds(ids);
+        return Result.success();
+    }
+
 }
