@@ -47,9 +47,12 @@ public class LoginController {
         queryWrapper.eq("account",user.getAccount())
                         .eq("password",user.getPassword());
         User e = userService.getOne(queryWrapper);
-        String  jwt = getToken(e.getId(), e.getAccount());
-        Result.success(new LoginResult(e.getId(),e.getAvatar(),e.getAccount(),e.getNickname(),jwt));
+        if(e!=null){
+            String  jwt = getToken(e.getId(), e.getAccount());
+            return Result.success(new LoginResult(e.getId(),e.getAvatar(),e.getAccount(),e.getNickname(),jwt));
+        }
         return Result.error("用户名或密码错误");
+
     }
     //小程序端模拟微信登录
     @PostMapping("/wxMin/simple")

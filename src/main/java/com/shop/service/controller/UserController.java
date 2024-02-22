@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.shop.service.common.JwtToken;
+import com.shop.service.pojo.Password;
 import com.shop.service.pojo.Result;
 import com.shop.service.pojo.User;
 import com.shop.service.pojo.UserList;
@@ -58,7 +59,27 @@ public class UserController {
         Integer userId = (Integer) claims.get("id");
         user.setId(Long.valueOf(userId));
         userService.updateById(user);
-        return Result.success();
+        return Result.success(user);
+    }
+    /*用户修改密码*/
+    @PostMapping("/profile")
+    public Result postPassword(@RequestBody Password data){
+        QueryWrapper<User> queryWrapper =new QueryWrapper<>();
+        queryWrapper.eq("password",data.getPassword()).eq("id",jwtToken.getUserIdByToken());
+
+         User res = userService.getOne(queryWrapper);
+        //首先先确定原密码没错
+        if(res!=null){
+            //不等于空再进行新密码更改
+            User user =new User();
+            user.setPassword(data.getNewPassword());
+            user.setId((long)jwtToken.getUserIdByToken());
+            userService.updateById(user);
+            return Result.success("修改成功!");
+        }else{
+            return Result.error("原密码错误!");
+        }
+
     }
 
     /*头像上传*/

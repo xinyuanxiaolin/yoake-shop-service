@@ -87,7 +87,7 @@ public class GoodsController {
         return Result.success();
     }
 
-    //获取商品列表
+    //获取商品列表,可用于模糊匹配搜寻商品(名字和描述)
     @GetMapping("/goods/list")
     public Result goodsDetail(@RequestParam(defaultValue = "1") Integer pageNum,
                               @RequestParam(defaultValue = "10") Integer pageSize,

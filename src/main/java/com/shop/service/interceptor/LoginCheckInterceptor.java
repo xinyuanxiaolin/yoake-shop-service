@@ -30,6 +30,7 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
             //之前在controller层可以自动转化为json格式,这边需要手动转换,依赖了阿里的fastjson
             String noLogin = JSONObject.toJSONString(error);
             //响应给浏览器
+            response.setStatus(401); //给前端响应码
             response.getWriter().write(noLogin);
             return false;
         }
@@ -42,6 +43,7 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
             Result error = Result.error("NOT_LOGIN");
             //之前在controller层可以自动转化为json格式,这边需要手动转换,依赖了阿里的fastjson
             String noLogin = JSONObject.toJSONString(error);
+            response.setStatus(401); //给前端响应码
             //响应给浏览器
             response.getWriter().write(noLogin);
             return false;
