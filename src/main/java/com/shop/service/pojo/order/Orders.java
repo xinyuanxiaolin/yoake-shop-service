@@ -1,6 +1,7 @@
 package com.shop.service.pojo.order;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.shop.service.pojo.category.CategoryTopItem;
 import com.shop.service.pojo.goods.GoodsItem;
 import com.shop.service.pojo.order.orderPre.OrderPreGoods;
@@ -29,6 +30,7 @@ public class Orders {
     /** 收货人地址完整地址*/
     private String receiverAddress;
     /** 创建时间*/
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createTime;
     /** 运费*/
     private Integer postFee;

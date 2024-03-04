@@ -98,7 +98,6 @@
                 <version>${spring-boot.version}</version>
                 <configuration>
                     <mainClass>com.shop.service.YoakeShopServiceApplication</mainClass>
-                    <skip>true</skip>
                 </configuration>
                 <executions>
                     <execution>
@@ -111,5 +110,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

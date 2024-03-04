@@ -93,7 +93,6 @@ public class GoodsController {
                               @RequestParam(defaultValue = "10") Integer pageSize,
                               String searchText){
        AdminGoodsDetailList res = goodsService.goodsDetail(pageNum,pageSize,searchText);
-
         return Result.success(res);
     }
     //获取商品信息通过id

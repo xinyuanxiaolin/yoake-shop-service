@@ -4,9 +4,14 @@ spring:
   #数据库连接配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
+    #    本地配置
     username: root
     password: 123456
     url: jdbc:mysql://localhost:3306/yoake_shop
+    #     远程服务器配置
+#    username: yoake
+#    password: lzf5201314...
+#    url: jdbc:mysql://localhost:3306/yoake_shop
   #文件上传配置
   servlet:
     multipart:
