@@ -20,4 +20,26 @@ public class BannerController {
         List<Banner> res = bannerService.getByType(distributionSite);
         return Result.success(res);
     }
+
+    /** 管理员模块 */
+    //获取所有轮播图
+    @GetMapping("/banner/all")
+    public Result getBanner(){
+        List<Banner> res = bannerService.getBanner();
+        return Result.success(res);
+    }
+    //编辑轮播图和新增轮播图
+    @PutMapping("/banner")
+    public Result putBanner(@RequestBody Banner banner){
+        bannerService.putBanner(banner);
+        return Result.success();
+    }
+    //删除轮播图
+    @DeleteMapping("/banner/{ids}")
+    public Result deleteBanner(@PathVariable List<Integer> ids){
+        bannerService.deleteBanner(ids);
+        return Result.success();
+    }
+
+
 }

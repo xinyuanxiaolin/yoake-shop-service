@@ -21,4 +21,27 @@ public class BannerServiceImpl implements BannerService {
         return bannerMapper.selectList(queryWrapper);
 
     }
+
+    @Override
+    public List<Banner> getBanner() {
+        QueryWrapper<Banner> queryWrapper = new QueryWrapper<>();
+        return bannerMapper.selectList(queryWrapper);
+    }
+
+    @Override
+    public void putBanner(Banner banner) {
+        if(banner.getId()==null){
+            //新增
+            bannerMapper.insert(banner);
+        }else {
+            //修改
+            bannerMapper.updateById(banner);
+        }
+    }
+
+    @Override
+    public void deleteBanner(List<Integer> ids) {
+        bannerMapper.deleteBatchIds(ids);
+    }
+
 }
