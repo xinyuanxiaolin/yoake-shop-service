@@ -19,5 +19,7 @@ public class OrderCreateParams {
     private List<GoodsList> goods;
     /** 提交订单方式,1为直接购买,2为购物车购买*/
     private Integer payType;
+    /** 总价*/
+    private Double totalPayPrice;
 
 }

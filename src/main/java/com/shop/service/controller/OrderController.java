@@ -80,6 +80,8 @@ public class OrderController {
         }else{
             queryWrapper.eq("order_state",orderState).eq("user_id",jwtToken.getUserIdByToken());
         }
+        // 添加排序条件，按照订单创建时间倒序排序
+        queryWrapper.orderByDesc("create_time");
         //获得分页查询后的数据
         Page<Orders> orders = orderService.page(pages,queryWrapper);
         //先进行基本的信息分配
@@ -154,6 +156,14 @@ public class OrderController {
         List<Orders> ordersList = orders.getRecords();
         List<Orders> jiegou = ordersList.stream().map(v->orderService.getOrderById(v.getId())).collect(Collectors.toList());
         res.setItems(jiegou);
+        return Result.success(res);
+    }
+
+    /*获取所有订单列表*/
+    @GetMapping("/list/all")
+    public Result getOrderListAll(){
+
+        List<Orders> res =orderService.list();
         return Result.success(res);
     }
 

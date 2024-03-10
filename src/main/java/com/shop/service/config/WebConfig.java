@@ -22,6 +22,7 @@ public class WebConfig implements WebMvcConfigurer {
         openApi.add("/home/banner");
         openApi.add("/home/category/mutli");
         openApi.add("/category/top");
+        openApi.add("/alipay/**");
         registry.addInterceptor(loginCheckInterceptor).addPathPatterns("/**")  //两个星号记得
                 .excludePathPatterns(openApi);
 

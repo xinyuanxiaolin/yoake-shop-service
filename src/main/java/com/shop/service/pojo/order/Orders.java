@@ -38,7 +38,6 @@ public class Orders {
     @TableField(exist = false)
     private Double totalMoney;
     /** 加上运费后应付金额*/
-    @TableField(exist = false)
     private Double payMoney;
     /** 订单备注*/
     private String buyerMessage;
