@@ -199,6 +199,31 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implement
         UpdateWrapper<Orders> updateWrapper =new UpdateWrapper<>();
         updateWrapper.eq("id",id).set("order_state",i);
         orderMapper.update(null,updateWrapper);
+        //从待发货到待收货状态，进行库存改变
+        if(i==3){
+            //对应商品的的库存也要减少
+            //首先先找到对应关联表的goods_id和quantity
+            List<OrderProducts> ReduceOrderProducts = orderMapper.getOrderProducts(Integer.valueOf(id));
+            //通过拿到的goods_id去更新category商品表
+
+            ReduceOrderProducts.forEach(v->{
+                CategoryTopItem categoryTopItem = goodsMapper.selectById(v.getGoodsId());
+                categoryTopItem.setStock(categoryTopItem.getStock()-v.getQuantity());
+                goodsMapper.updateById(categoryTopItem);
+            });
+            return;
+        }
+        //要进行管理员确认退货退款，这时候需要把删除的对应商品库存加进去
+        if(i==8){
+            //找关联表
+            List<OrderProducts> AddOrderProducts = orderMapper.getOrderProducts(Integer.valueOf(id));
+            AddOrderProducts.forEach(v->{
+                CategoryTopItem categoryTopItem = goodsMapper.selectById(v.getGoodsId());
+                categoryTopItem.setStock(categoryTopItem.getStock()+v.getQuantity());
+                goodsMapper.updateById(categoryTopItem);
+            });
+            return;
+        }
     }
 
 

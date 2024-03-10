@@ -29,16 +29,6 @@ public class PayServiceImpl implements PayService {
         UpdateWrapper<Orders> updateWrapper = new UpdateWrapper<>();
         updateWrapper.eq(orderId!=null,"id",orderId).set("order_state",2);
         payMapper.update(null,updateWrapper);
-        //对应商品的的库存也要减少
-        //首先先找到对应关联表的goods_id和quantity
-        List<OrderProducts> orderProducts = payMapper.getOrderProducts(orderId);
-        //通过拿到的goods_id去更新category商品表
-
-        orderProducts.forEach(v->{
-            CategoryTopItem categoryTopItem = goodsMapper.selectById(v.getGoodsId());
-            categoryTopItem.setStock(categoryTopItem.getStock()-v.getQuantity());
-            goodsMapper.updateById(categoryTopItem);
-        });
 
 
     }

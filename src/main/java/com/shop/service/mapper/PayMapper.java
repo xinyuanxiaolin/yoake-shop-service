@@ -11,7 +11,4 @@ import java.util.List;
 @Mapper
 public interface PayMapper extends BaseMapper<Orders> {
 
-    @Select("select * from order_products where order_id = #{orderId}")
-    List<OrderProducts> getOrderProducts(String orderId);
-
 }

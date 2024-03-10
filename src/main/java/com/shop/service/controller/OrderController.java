@@ -127,6 +127,21 @@ public class OrderController {
         orderService.changeOrderState(id,4);
         return Result.success();
     }
+    //退款退货,用户确认退款,等待退款
+    @PutMapping("/{id}/reject")
+    public Result getOrderReject(@PathVariable String id){
+        //将待收货(3)转变为待退款状态(7)
+        orderService.changeOrderState(id,7);
+        return Result.success();
+    }
+    //退款退货，管理员确认退款
+    @PutMapping("/{id}/confirmReject")
+    public Result confirmOrderReject(@PathVariable String id){
+        //将待退款(7)转变为已退款(8)
+        orderService.changeOrderState(id,8);
+        return Result.success();
+    }
+
 
     /** 管理员模块*/
     /*获取订单列表条件查询管理员版*/
