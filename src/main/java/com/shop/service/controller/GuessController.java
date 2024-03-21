@@ -26,7 +26,7 @@ public class GuessController {
         IPage<GoodsItem> pagearea =new Page<>(page,pageSize);
         //随机返回数据且为三级列表的才是商品
         QueryWrapper<GoodsItem> queryWrapper = new QueryWrapper<>();
-        queryWrapper.like("list_level",3);
+        queryWrapper.like("list_level",3).eq("removed",0);
         IPage<GoodsItem> goodsList =guessService.page(pagearea,queryWrapper);
 
         Guess res =new Guess();

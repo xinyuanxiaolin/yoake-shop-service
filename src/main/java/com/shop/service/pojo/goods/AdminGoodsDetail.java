@@ -27,5 +27,7 @@ public class AdminGoodsDetail {
     private Integer stock;
     /** desc描述*/
     private String desc;
+    /** 是否下架商品*/
+    private Integer removed;
 
 }

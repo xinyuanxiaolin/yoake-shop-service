@@ -34,7 +34,14 @@ public class GoodsController {
         List<CategoryTopItem> categoryTopItem = goodsService.getHomeCategory();
         return  Result.success(categoryTopItem);
     }
-
+    //用户搜索,可用于模糊匹配搜寻商品(名字和描述)
+    @GetMapping("/goods/list/search")
+    public Result goodsDetail(@RequestParam(defaultValue = "1") Integer pageNum,
+                              @RequestParam(defaultValue = "10") Integer pageSize,
+                              String searchText){
+        AdminGoodsDetailList res = goodsService.goodsDetailByUser(pageNum,pageSize,searchText);
+        return Result.success(res);
+    }
     //商品详情
     @GetMapping("/goods")
     public Result getGoodsById(@RequestParam Integer id){
@@ -50,7 +57,6 @@ public class GoodsController {
         goodsService.addCategory(data.getName(),data.getLevel(),data.getPicture(),data.getParentId());
         return Result.success();
     }
-
     //获得分类详情
     @GetMapping("/category")
     public Result getCategory(){
@@ -89,7 +95,7 @@ public class GoodsController {
 
     //获取商品列表,可用于模糊匹配搜寻商品(名字和描述)
     @GetMapping("/goods/list")
-    public Result goodsDetail(@RequestParam(defaultValue = "1") Integer pageNum,
+    public Result goodsDetailAdmin(@RequestParam(defaultValue = "1") Integer pageNum,
                               @RequestParam(defaultValue = "10") Integer pageSize,
                               String searchText){
        AdminGoodsDetailList res = goodsService.goodsDetail(pageNum,pageSize,searchText);
@@ -118,5 +124,19 @@ public class GoodsController {
         return Result.success();
     }
 
+    //下架商品
+    @PutMapping("/goods/removed/{id}")
+    public Result putRemoveGood(@PathVariable Integer id){
+        //传1表示下架
+        goodsService.putRemoveGood(id,1);
+        return Result.success();
+    }
+    //上架商品
+    @PutMapping("/goods/put/{id}")
+    public Result putPutGood(@PathVariable Integer id){
+        //传0表示上架
+        goodsService.putRemoveGood(id,0);
+        return Result.success();
+    }
 
 }

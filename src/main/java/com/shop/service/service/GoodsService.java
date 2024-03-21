@@ -32,4 +32,8 @@ public interface GoodsService{
     void putGoods(GoodsPublishAndEdit data);
 
     void deleteGoodsByIds(List<Integer> ids);
+
+    AdminGoodsDetailList goodsDetailByUser(Integer pageNum, Integer pageSize, String searchText);
+
+    void putRemoveGood(Integer id,Integer state);
 }

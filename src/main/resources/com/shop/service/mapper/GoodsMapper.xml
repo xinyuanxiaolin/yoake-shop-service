@@ -49,5 +49,30 @@
             </if>
         </where>
     </select>
+    <!--获取相关商品未被下架，给用户搜索显示-->
+    <select id="getLevel3DetailByUser" resultType="com.shop.service.pojo.goods.AdminGoodsDetail">
+        select * from category
+        <where>
+            list_level = 3 and removed = 0
+            <!-- 如果搜索条件不为空，则添加搜索条件 -->
+            <if test="searchText != null and searchText != ''">
+                and (name like concat('%', #{searchText}, '%')
+                or `desc` LIKE concat('%', #{searchText}, '%'))
+            </if>
+        </where>
+        limit #{pageNum},#{pageSize}
+    </select>
+    <!--获取相关商品未被下架的数量，给用户搜索显示-->
+    <select id="getLevel3DetailTotalByUser" resultType="java.lang.Long">
+        select count(*) from category
+        <where>
+            list_level = 3 and removed = 0
+            <!-- 如果搜索条件不为空，则添加搜索条件 -->
+            <if test="searchText != null and searchText != ''">
+                and (name like concat('%', #{searchText}, '%')
+                or `desc` like concat('%', #{searchText}, '%'))
+            </if>
+        </where>
+    </select>
 
 </mapper>

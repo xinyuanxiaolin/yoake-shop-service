@@ -49,4 +49,7 @@ public interface GoodsMapper extends BaseMapper<CategoryTopItem> {
     void deleteProperties(Integer id);
 
 
+    List<AdminGoodsDetail> getLevel3DetailByUser(@Param("pageNum") int pageNum,@Param("pageSize") Integer pageSize, @Param("searchText") String searchText);
+
+    Long getLevel3DetailTotalByUser(String searchText);
 }

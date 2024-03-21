@@ -43,6 +43,8 @@ public class CategoryTopItem {
     /** 二级分类集合[ 二级分类项 ] */
     @TableField(exist = false)
     private  List<CategoryChildItem> children;
+    /** 是否为禁用或者是商品下架了*/
+    private Integer removed;
 
 }
 

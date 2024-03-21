@@ -26,7 +26,7 @@ public class GoodsServiceImpl implements GoodsService  {
     //实现多级列表封装函数
     private List<CategoryTopItem> getParent_id(List<CategoryTopItem> selectList ,Integer parent_id) {
         List<CategoryTopItem> collect =  selectList.stream().filter(item->{
-            return item.getParentId() == parent_id;
+            return item.getParentId() == parent_id && item.getRemoved() == 0;
         }).collect(Collectors.toList());
         return  collect;
     }
@@ -171,7 +171,7 @@ public class GoodsServiceImpl implements GoodsService  {
     public void publishGoods(GoodsPublishAndEdit data) {
         //首先吧基本商品信息存到分类商品表中
         CategoryTopItem goods = new CategoryTopItem(null, data.getName(), data.getCategoryList().get(1),data.getMainPictures().get(0),
-                data.getDesc(), data.getStock(), data.getPrice(), data.getPrice(), null,3,null,null);
+                data.getDesc(), data.getStock(), data.getPrice(), data.getPrice(), null,3,null,null,0);
         goodsMapper.insert(goods);
         //然后把商品主图列表和海报图列表存到对应的goods_pictures表中
         goodsMapper.putPictures(goods.getId(),data.getMainPictures(),1);
@@ -249,6 +249,24 @@ public class GoodsServiceImpl implements GoodsService  {
     public void deleteGoodsByIds(List<Integer> ids) {
         goodsMapper.deleteBatchIds(ids);
 
+    }
+
+    //用户的模糊搜索商品
+    @Override
+    public AdminGoodsDetailList goodsDetailByUser(Integer pageNum, Integer pageSize, String searchText) {
+        //拿到三级列表全部数据
+        List<AdminGoodsDetail> data = goodsMapper.getLevel3DetailByUser(pageNum-1,pageSize,searchText);
+        Long total = goodsMapper.getLevel3DetailTotalByUser(searchText);
+        return new AdminGoodsDetailList(total,pageNum,(int)Math.ceil((double)total / pageSize),pageSize,data);
+    }
+
+    //下架和上架商品
+    @Override
+    public void putRemoveGood(Integer id,Integer state) {
+        CategoryTopItem categoryTopItem = new CategoryTopItem();
+        categoryTopItem.setId(id);
+        categoryTopItem.setRemoved(state);
+        goodsMapper.updateById(categoryTopItem);
     }
 
 
