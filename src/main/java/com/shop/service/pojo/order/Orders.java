@@ -49,6 +49,8 @@ public class Orders {
     private List<CategoryTopItem> goods;
     /** 取消订单理由*/
     private String cancelReason;
+    /** 评价*/
+    private String comment;
 
 
 

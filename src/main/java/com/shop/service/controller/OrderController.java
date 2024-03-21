@@ -109,6 +109,14 @@ public class OrderController {
         return Result.success();
 
     }
+    /*评价*/
+    @PostMapping("/comment")
+    public Result postOrderComment(@RequestBody Orders orders){
+        //将待评价(4)转变为已完成(5)
+        orders.setOrderState(5);
+        orderService.updateById(orders);
+        return Result.success();
+    }
 
     /**货物运输模块*/
 

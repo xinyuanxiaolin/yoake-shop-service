@@ -110,7 +110,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Orders> implement
     public Orders postOrder(OrderCreateParams data) {
         //新建一个Orders对象
         Orders orders = new Orders(null,jwtToken.getUserIdByToken(),1,null,null,
-                null, LocalDateTime.now(),5,null,data.getTotalPayPrice(), data.getBuyerMessage(), null,null,null);
+                null, LocalDateTime.now(),5,null,data.getTotalPayPrice(), data.getBuyerMessage(), null,null,null,null);
 
         //接下去去利用addressId查询到相关地址信息和联系人相关信息
         Address address= addressMapper.selectById(data.getAddressId());
