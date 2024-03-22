@@ -139,4 +139,11 @@ public class GoodsController {
         return Result.success();
     }
 
+    //用于后台首页商品状况统计
+    @GetMapping("/goods/statistic")
+    public Result getStatistic(){
+        List<CategoryTopItem> res = goodsService.getAllGoods();
+        return Result.success(res);
+    }
+
 }

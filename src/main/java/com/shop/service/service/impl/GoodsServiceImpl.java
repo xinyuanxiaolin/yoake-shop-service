@@ -269,5 +269,13 @@ public class GoodsServiceImpl implements GoodsService  {
         goodsMapper.updateById(categoryTopItem);
     }
 
+    //获取所有商品数据
+    @Override
+    public List<CategoryTopItem> getAllGoods() {
+        QueryWrapper<CategoryTopItem> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("list_level",3);
+        return goodsMapper.selectList(queryWrapper);
+    }
+
 
 }

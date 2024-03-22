@@ -36,4 +36,6 @@ public interface GoodsService{
     AdminGoodsDetailList goodsDetailByUser(Integer pageNum, Integer pageSize, String searchText);
 
     void putRemoveGood(Integer id,Integer state);
+
+    List<CategoryTopItem> getAllGoods();
 }
