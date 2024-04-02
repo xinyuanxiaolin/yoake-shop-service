@@ -56,6 +56,7 @@ public class AliPayController {
         bizContent.put("product_code", "FAST_INSTANT_TRADE_PAY");  // 固定配置
         request.setBizContent(bizContent.toString());
         request.setReturnUrl("http://localhost:5173/#/pagesOrder/list/list"); // 支付完成后自动跳转到本地页面的路径
+//        request.setReturnUrl("http://localhost:80/#/pagesOrder/list/list"); // 支付完成后自动跳转到本地页面的路径 云服务器
         // 执行请求，拿到响应的结果，返回给浏览器
         String form = "";
         try {
