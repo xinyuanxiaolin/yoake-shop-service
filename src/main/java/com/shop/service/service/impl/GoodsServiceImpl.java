@@ -72,8 +72,6 @@ public class GoodsServiceImpl implements GoodsService  {
             v.setChildren(categoryChildItems);
             return v;
         }).collect(Collectors.toList());;
-
-
         return parent_data;
     }
 
